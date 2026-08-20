@@ -7,225 +7,303 @@
 <title>성토부 H형강 흙막이 예비설계</title>
 
 <style>
-    * { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
-    body {
-        margin: 0;
-        padding: 24px;
-        background: #f4f6f8;
-        font-family: "Pretendard", "Noto Sans KR", Arial, sans-serif;
-        color: #222;
+body {
+    margin: 0;
+    padding: 22px;
+    background: #f3f5f7;
+    font-family:
+        "Pretendard",
+        "Noto Sans KR",
+        "Malgun Gothic",
+        Arial,
+        sans-serif;
+    color: #222;
+}
+
+.container {
+    max-width: 1500px;
+    margin: auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.subtitle {
+    margin-top: 7px;
+    margin-bottom: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.warning {
+    background: #fff5dc;
+    border: 1px solid #e0c674;
+    border-radius: 9px;
+    padding: 13px 16px;
+    margin-bottom: 18px;
+    line-height: 1.65;
+    font-size: 13px;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 420px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+}
+
+@media(max-width:1050px) {
+    .main-grid {
+        grid-template-columns: 1fr;
     }
+}
 
-    .container {
-        max-width: 1450px;
-        margin: auto;
-    }
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 17px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.055);
+}
 
-    h1 {
-        margin: 0 0 8px 0;
-        font-size: 28px;
-    }
+.card h2 {
+    margin: 0 0 13px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+}
 
-    .subtitle {
-        color: #666;
-        margin-bottom: 20px;
-        line-height: 1.6;
-    }
+.row {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 145px;
+    align-items: center;
+    gap: 10px;
+    margin: 9px 0;
+}
 
-    .warning {
-        background: #fff4d8;
-        border: 1px solid #e2c46c;
-        padding: 12px 16px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        line-height: 1.55;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: 420px 1fr;
-        gap: 18px;
-        align-items: start;
-    }
-
-    @media (max-width: 1000px) {
-        .grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .card {
-        background: white;
-        border-radius: 10px;
-        padding: 18px;
-        margin-bottom: 16px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-
-    .card h2 {
-        font-size: 18px;
-        margin-top: 0;
-        margin-bottom: 14px;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 8px;
-    }
-
+@media(max-width:500px) {
     .row {
-        display: grid;
-        grid-template-columns: 1fr 130px;
-        gap: 10px;
-        align-items: center;
-        margin: 9px 0;
+        grid-template-columns: 1fr;
+        gap: 4px;
     }
+}
 
-    label {
-        font-size: 14px;
-    }
+label {
+    font-size: 14px;
+    line-height: 1.4;
+}
 
-    input, select {
-        width: 100%;
-        padding: 7px 8px;
-        border: 1px solid #bbb;
-        border-radius: 5px;
-        font-size: 14px;
-        background: white;
-    }
+.unit {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    color: #777;
+}
 
-    input:disabled {
-        background: #eee;
-        color: #777;
-    }
+input,
+select {
+    width: 100%;
+    padding: 8px 9px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+}
 
-    .unit {
-        font-size: 12px;
-        color: #777;
-    }
+input:disabled,
+select:disabled {
+    background: #eee;
+    color: #888;
+}
 
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 9px 0;
+    font-size: 14px;
+}
+
+.checkbox-row input {
+    width: auto;
+    transform: scale(1.15);
+}
+
+button {
+    padding: 7px 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #f1f1f1;
+}
+
+.preset-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.small-note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 9px;
+    line-height: 1.6;
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 9px;
+    margin-bottom: 14px;
+}
+
+@media(max-width:1000px) {
     .results {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        margin-bottom: 16px;
+        grid-template-columns: repeat(2,1fr);
     }
+}
 
-    @media (max-width: 900px) {
-        .results {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
+.result-box {
+    background: #f6f8fa;
+    border: 1px solid #d9dde0;
+    border-radius: 8px;
+    padding: 12px;
+}
 
-    .result-box {
-        background: #f7f8fa;
-        border: 1px solid #ddd;
-        padding: 14px;
-        border-radius: 8px;
-    }
+.result-title {
+    font-size: 12px;
+    color: #666;
+}
 
-    .result-title {
-        font-size: 12px;
-        color: #666;
-    }
+.result-value {
+    font-size: 21px;
+    font-weight: 700;
+    margin-top: 5px;
+}
 
-    .result-value {
-        margin-top: 6px;
-        font-size: 23px;
-        font-weight: 700;
-    }
+.info-box {
+    background: #eef4f7;
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-size: 14px;
+    line-height: 1.65;
+}
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 13px;
-    }
+.geometry-box {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    background: #fbfbfb;
+    overflow: hidden;
+}
 
-    th, td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
+.geometry-box svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-    th {
-        background: #f0f2f4;
-    }
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+}
 
-    .ok {
-        font-weight: bold;
-    }
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-    .ng {
-        font-weight: bold;
-    }
+.legend-swatch {
+    width: 22px;
+    height: 4px;
+    display: inline-block;
+}
 
-    .recommended {
-        background: #e9f4eb !important;
-        font-weight: 700;
-    }
+.table-wrap {
+    overflow-x: auto;
+}
 
-    .small-note {
-        margin-top: 10px;
-        color: #666;
-        font-size: 12px;
-        line-height: 1.6;
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
 
-    canvas {
-        width: 100%;
-        height: 280px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        margin-top: 10px;
-    }
+th,
+td {
+    border: 1px solid #d9d9d9;
+    padding: 7px;
+    text-align: center;
+    white-space: nowrap;
+}
 
-    .geometry-box {
-        position: relative;
-        height: 250px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        overflow: hidden;
-        background: #fafafa;
-    }
+th {
+    background: #f0f2f4;
+}
 
-    svg {
-        width: 100%;
-        height: 100%;
-    }
+.recommended {
+    background: #e8f3e9 !important;
+    font-weight: 700;
+}
 
-    .recommendation {
-        padding: 16px;
-        background: #eef4f7;
-        border-radius: 8px;
-        line-height: 1.7;
-        font-size: 15px;
-    }
+.ok {
+    font-weight: 700;
+    color: #236629;
+}
 
-    button {
-        border: 1px solid #aaa;
-        padding: 7px 10px;
-        background: white;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-right: 4px;
-    }
+.ng {
+    font-weight: 700;
+    color: #a63c33;
+}
 
-    button:hover {
-        background: #eee;
-    }
+canvas {
+    width: 100%;
+    height: 300px;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
 
-    .preset-row {
-        display: flex;
-        gap: 5px;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
+.assumption-list {
+    margin: 8px 0 0 20px;
+    padding: 0;
+    line-height: 1.7;
+    font-size: 12px;
+    color: #555;
+}
 
-    .section-label {
-        font-weight: 700;
-        font-size: 14px;
-        margin-top: 12px;
-        margin-bottom: 7px;
-    }
+.section-title-small {
+    margin-top: 13px;
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 13px;
+}
 
+.top-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.gw-label {
+    color: #176f9d;
+}
 </style>
 </head>
 
@@ -236,239 +314,376 @@
 <h1>성토부 H형강 흙막이 예비설계</h1>
 
 <div class="subtitle">
-    성토폭에 따른 성토높이, 토류판 단수, H형강 간격 및 필요 근입깊이를
-    파라메트릭하게 비교하는 예비설계 도구
+성토폭에 따라 H형강 간격, 근입깊이 및 토류판 단수를 비교하고
+성토형상·지하수위·토압분포를 동시에 확인하는 예비설계 도구
 </div>
 
 <div class="warning">
-    <b>주의:</b>
-    본 계산기는 개념설계 및 비교검토용입니다.
-    Rankine 토압과 단순화된 수동저항 모멘트 평형을 사용하며,
-    최종 가시설 구조계산서에는 적용 설계기준에 따른 상세 지반·구조해석이 필요합니다.
-    아래의 초기 토질정수는 특정 현장의 설계값이 아니라 계산기 작동을 위한 예시값입니다.
+<b>주의</b><br>
+본 프로그램은 형식선정 및 예비 비교검토를 위한 간이 계산기입니다.
+Rankine 토압, 단순화된 수동저항 및 H형강/토류판 간이 휨검토를 사용합니다.
+최종 가시설 구조계산서에는 적용 설계기준, 굴착단계, 변위, 전체안정,
+보일링·파이핑·히빙, 지반반력, 인접구조물 영향 등을 별도로 검토해야 합니다.
+초기 토질정수 및 저감계수는 특정 현장의 확정 설계값이 아닙니다.
 </div>
 
-<div class="grid">
+<div class="main-grid">
 
-<!-- ================= LEFT ================= -->
+<!-- ======================================================
+     LEFT INPUT PANEL
+====================================================== -->
 <div>
 
+<div class="top-actions">
+<button type="button" id="resetButton">초기값 복원</button>
+</div>
+
+<!-- Geometry -->
 <div class="card">
+
 <h2>1. 성토 기하조건</h2>
 
 <div class="row">
-    <label>성토폭 B <span class="unit">(m)</span></label>
-    <input id="B" type="number" value="5.10" step="0.1">
+<label>
+성토폭 B
+<span class="unit">수평거리 (m)</span>
+</label>
+<input id="B" type="number" value="5.10" step="0.1" min="0">
 </div>
 
 <div class="row">
-    <label>기존 사면 경사각 θ <span class="unit">(°)</span></label>
-    <input id="theta" type="number" value="23" step="0.1">
+<label>
+기존사면 경사각 θ
+<span class="unit">수평 기준 (°)</span>
+</label>
+<input id="theta" type="number" value="23" step="0.1" min="0.1" max="80">
 </div>
 
 <div class="row">
-    <label>성토높이 결정</label>
-    <select id="heightMode">
-        <option value="auto">B × tanθ 자동계산</option>
-        <option value="manual">성토높이 직접입력</option>
-    </select>
+<label>성토높이 결정방법</label>
+<select id="heightMode">
+<option value="auto">B × tanθ 자동계산</option>
+<option value="manual">성토높이 직접입력</option>
+</select>
 </div>
 
 <div class="row">
-    <label>직접입력 H <span class="unit">(m)</span></label>
-    <input id="manualH" type="number" value="2.16" step="0.1" disabled>
+<label>
+성토높이 H
+<span class="unit">직접입력 시 사용 (m)</span>
+</label>
+<input id="manualH" type="number" value="2.16" step="0.1" min="0" disabled>
 </div>
 
 <div class="row">
-    <label>상재하중 q <span class="unit">(kPa)</span></label>
-    <input id="surcharge" type="number" value="10" step="1">
+<label>
+상재하중 q
+<span class="unit">차량·장비·적치 등 (kPa)</span>
+</label>
+<input id="surcharge" type="number" value="10" step="1" min="0">
 </div>
 
-<div class="row">
-    <label>토류판 1단 높이 <span class="unit">(m)</span></label>
-    <input id="boardHeight" type="number" value="0.20" step="0.01">
-</div>
-
 </div>
 
 
+<!-- Fill -->
 <div class="card">
 
-<h2>2. 성토재 토질정수</h2>
+<h2>2. 성토재</h2>
 
 <div class="row">
-    <label>단위중량 γ <span class="unit">(kN/m³)</span></label>
-    <input id="gammaFill" type="number" value="18" step="0.1">
+<label>
+단위중량 γ
+<span class="unit">kN/m³</span>
+</label>
+<input id="gammaFill" type="number" value="18" step="0.1">
 </div>
 
 <div class="row">
-    <label>내부마찰각 φ <span class="unit">(°)</span></label>
-    <input id="phiFill" type="number" value="30" step="0.5">
+<label>
+내부마찰각 φ
+<span class="unit">degree</span>
+</label>
+<input id="phiFill" type="number" value="30" step="0.5">
 </div>
 
 <div class="row">
-    <label>점착력 c <span class="unit">(kPa)</span></label>
-    <input id="cFill" type="number" value="0" step="1">
+<label>
+점착력 c
+<span class="unit">kPa</span>
+</label>
+<input id="cFill" type="number" value="0" step="1">
+</div>
+
+<div class="checkbox-row">
+<input id="fillGWEnabled" type="checkbox">
+<label for="fillGWEnabled">
+성토측/배면 지하수 고려
+</label>
 </div>
 
 <div class="row">
-    <label>성토부 지하수위 <span class="unit">상단에서 m</span></label>
-    <input id="gwFill" type="number" value="99" step="0.1">
+<label>
+배면 지하수위
+<span class="unit">성토 상단에서 하향 깊이 (m)</span>
+</label>
+<input id="gwFill" type="number" value="1.20" step="0.1" disabled>
 </div>
 
 <div class="small-note">
-    지하수위 99 m는 사실상 지하수 영향 없음으로 처리됩니다.
+지하수가 활성화되면 성토 상단을 기준으로 수위를 입력합니다.
+예: 1.20 m → 성토 상단에서 1.20 m 아래에 지하수위가 존재.
 </div>
 
 </div>
 
 
+<!-- Native soil -->
 <div class="card">
 
-<h2>3. 원지반 토질정수</h2>
+<h2>3. 원지반</h2>
 
 <div class="preset-row">
-    <button type="button" onclick="presetSand()">사질토 예시</button>
-    <button type="button" onclick="presetClayDrained()">점성토 배수 예시</button>
-    <button type="button" onclick="presetClaySu()">점성토 Su 예시</button>
+<button type="button" id="presetSand">사질토 예시</button>
+<button type="button" id="presetClay">점성토 배수 예시</button>
+<button type="button" id="presetSu">점성토 Su 예시</button>
 </div>
 
 <div class="row">
-    <label>원지반 해석방법</label>
-    <select id="nativeMode">
-        <option value="drained">배수해석 : γ, φ, c</option>
-        <option value="undrained">비배수해석 : γ, Su</option>
-    </select>
+<label>해석방법</label>
+<select id="nativeMode">
+<option value="drained">배수해석 γ, φ, c</option>
+<option value="undrained">비배수해석 γ, Su</option>
+</select>
 </div>
 
 <div class="row">
-    <label>단위중량 γ <span class="unit">(kN/m³)</span></label>
-    <input id="gammaNative" type="number" value="19" step="0.1">
+<label>
+원지반 γ
+<span class="unit">kN/m³</span>
+</label>
+<input id="gammaNative" type="number" value="19" step="0.1">
 </div>
 
 <div id="drainedFields">
 
-    <div class="row">
-        <label>내부마찰각 φ <span class="unit">(°)</span></label>
-        <input id="phiNative" type="number" value="30" step="0.5">
-    </div>
+<div class="row">
+<label>
+원지반 φ
+<span class="unit">degree</span>
+</label>
+<input id="phiNative" type="number" value="30" step="0.5">
+</div>
 
-    <div class="row">
-        <label>점착력 c <span class="unit">(kPa)</span></label>
-        <input id="cNative" type="number" value="0" step="1">
-    </div>
+<div class="row">
+<label>
+원지반 c
+<span class="unit">kPa</span>
+</label>
+<input id="cNative" type="number" value="0" step="1">
+</div>
 
 </div>
 
 <div id="suFields" style="display:none">
 
-    <div class="row">
-        <label>비배수전단강도 Su <span class="unit">(kPa)</span></label>
-        <input id="Su" type="number" value="50" step="1">
-    </div>
+<div class="row">
+<label>
+비배수전단강도 Su
+<span class="unit">kPa</span>
+</label>
+<input id="Su" type="number" value="50" step="1">
+</div>
 
+</div>
+
+<div class="checkbox-row">
+<input id="nativeGWEnabled" type="checkbox">
+<label for="nativeGWEnabled">
+굴착측 원지반 지하수 고려
+</label>
 </div>
 
 <div class="row">
-    <label>원지반 지하수위 <span class="unit">GL에서 m 아래</span></label>
-    <input id="gwNative" type="number" value="99" step="0.1">
+<label>
+굴착측 지하수위
+<span class="unit">기존 GL에서 하향 깊이 (m)</span>
+</label>
+<input id="gwNative" type="number" value="1.50" step="0.1" disabled>
 </div>
 
 <div class="small-note">
-    초기 입력값 γ=19 kN/m³, φ=30°, c=0은 범용 예시입니다.
-    실제 설계 시 반드시 지반조사 결과로 변경하십시오.
+초기 원지반 입력값은 γ=19 kN/m³, φ=30°, c=0입니다.
+반드시 지반조사 결과로 변경하여 사용하십시오.
 </div>
 
 </div>
 
 
+<!-- Passive settings -->
 <div class="card">
 
-<h2>4. 근입부 수동저항 설정</h2>
+<h2>4. 근입부 수동저항</h2>
 
 <div class="row">
-    <label>수동토압 저감계수 ηp</label>
-    <input id="etaPassive" type="number" value="0.50" step="0.05">
+<label>
+수동토압 저감계수 ηp
+<span class="unit">예비값</span>
+</label>
+<input id="etaPassive" type="number" value="0.50" step="0.05" min="0" max="1">
 </div>
 
 <div class="row">
-    <label>유효폭 계수 kb</label>
-    <input id="passiveWidthFactor" type="number" value="1.0" step="0.1">
+<label>
+수동저항 유효폭 계수 kb
+<span class="unit">Bp = min(S, kb × pile width)</span>
+</label>
+<input id="passiveWidthFactor" type="number" value="3.0" step="0.1" min="0.1">
 </div>
 
 <div class="row">
-    <label>근입 안정계수 FS</label>
-    <input id="embedFS" type="number" value="1.50" step="0.05">
+<label>
+근입 안정계수 FS
+</label>
+<input id="embedFS" type="number" value="1.50" step="0.05" min="1">
 </div>
 
 <div class="row">
-    <label>허용 최대 근입깊이 <span class="unit">(m)</span></label>
-    <input id="maxEmbed" type="number" value="6.0" step="0.1">
+<label>
+허용 최대 근입깊이
+<span class="unit">m</span>
+</label>
+<input id="maxEmbed" type="number" value="8.0" step="0.1">
 </div>
 
 <div class="small-note">
-    유효 수동저항 폭은
-    Bp = min(H형강 간격, kb × H형강 폭)
-    으로 계산합니다.
-    kb와 ηp는 설계기준 및 지반조건에 따라 반드시 검토해야 합니다.
+수동저항 폭과 저감계수는 실제 설계기준 및 시공조건에 따라 달라질 수 있으므로
+최종 설계 시 별도 검토가 필요합니다.
 </div>
 
 </div>
 
 
+<!-- H pile -->
 <div class="card">
 
 <h2>5. H형강</h2>
 
-<div class="section-label">H-300 × 300 × 15 × 15 초기값</div>
-
-<div class="row">
-    <label>높이 h <span class="unit">(mm)</span></label>
-    <input id="pileH" type="number" value="300">
+<div class="section-title-small">
+H-300 × 300 × 15 × 15
 </div>
 
 <div class="row">
-    <label>플랜지 폭 b <span class="unit">(mm)</span></label>
-    <input id="pileB" type="number" value="300">
+<label>
+단면 높이 h
+<span class="unit">mm</span>
+</label>
+<input id="pileH" type="number" value="300">
 </div>
 
 <div class="row">
-    <label>웨브 두께 tw <span class="unit">(mm)</span></label>
-    <input id="tw" type="number" value="15">
+<label>
+플랜지 폭 b
+<span class="unit">mm</span>
+</label>
+<input id="pileB" type="number" value="300">
 </div>
 
 <div class="row">
-    <label>플랜지 두께 tf <span class="unit">(mm)</span></label>
-    <input id="tf" type="number" value="15">
+<label>
+웨브 두께 tw
+<span class="unit">mm</span>
+</label>
+<input id="tw" type="number" value="15">
 </div>
 
 <div class="row">
-    <label>항복강도 Fy <span class="unit">(MPa)</span></label>
-    <input id="Fy" type="number" value="275">
+<label>
+플랜지 두께 tf
+<span class="unit">mm</span>
+</label>
+<input id="tf" type="number" value="15">
 </div>
 
 <div class="row">
-    <label>예비 허용비율 × Fy</label>
-    <input id="capacityFactor" type="number" value="0.60" step="0.05">
+<label>
+항복강도 Fy
+<span class="unit">MPa</span>
+</label>
+<input id="Fy" type="number" value="275">
 </div>
 
 <div class="row">
-    <label>모멘트 보정계수 kM</label>
-    <input id="momentFactor" type="number" value="1.25" step="0.05">
+<label>
+예비 허용비율
+<span class="unit">× Fy</span>
+</label>
+<input id="capacityFactor" type="number" value="0.60" step="0.05">
+</div>
+
+<div class="row">
+<label>
+모멘트 보정계수 kM
+<span class="unit">예비 구조검토</span>
+</label>
+<input id="momentFactor" type="number" value="1.25" step="0.05">
 </div>
 
 </div>
 
 
+<!-- Board -->
 <div class="card">
 
-<h2>6. H형강 간격 후보</h2>
+<h2>6. 토류판</h2>
 
 <div class="row">
-    <label>후보 간격 <span class="unit">(m, 쉼표 구분)</span></label>
-    <input id="spacingList"
-           type="text"
-           value="1.0, 1.2, 1.5, 1.8, 2.0">
+<label>
+1단 높이
+<span class="unit">m</span>
+</label>
+<input id="boardHeight" type="number" value="0.20" step="0.01">
+</div>
+
+<div class="row">
+<label>
+토류판 두께
+<span class="unit">mm</span>
+</label>
+<input id="boardThickness" type="number" value="80" step="5">
+</div>
+
+<div class="row">
+<label>
+허용 휨응력
+<span class="unit">MPa, 예비 입력값</span>
+</label>
+<input id="boardAllowStress" type="number" value="8" step="0.5">
+</div>
+
+<div class="small-note">
+토류판은 H형강 사이의 단순지지보로 가정하고,
+계산된 최대 토압을 이용하여 간이 휨검토합니다.
+실제 목재 또는 강재의 재료등급에 따라 허용응력을 수정하십시오.
+</div>
+
+</div>
+
+
+<!-- Spacing -->
+<div class="card">
+
+<h2>7. H형강 간격 후보</h2>
+
+<div class="row">
+<label>
+후보간격
+<span class="unit">쉼표 구분 (m)</span>
+</label>
+<input
+id="spacingList"
+type="text"
+value="1.0, 1.2, 1.5, 1.8, 2.0">
 </div>
 
 </div>
@@ -476,102 +691,547 @@
 </div>
 
 
-<!-- ================= RIGHT ================= -->
+
+<!-- ======================================================
+     RIGHT RESULT PANEL
+====================================================== -->
 <div>
 
 <div class="card">
 
-<h2>계산 결과</h2>
+<h2>주요 계산 결과</h2>
 
 <div class="results">
 
 <div class="result-box">
-    <div class="result-title">성토높이 H</div>
-    <div class="result-value" id="outH">-</div>
+<div class="result-title">성토높이 H</div>
+<div class="result-value" id="outH">-</div>
 </div>
 
 <div class="result-box">
-    <div class="result-title">토류판 단수</div>
-    <div class="result-value" id="outBoards">-</div>
+<div class="result-title">토류판 단수</div>
+<div class="result-value" id="outBoards">-</div>
 </div>
 
 <div class="result-box">
-    <div class="result-title">성토재 Ka</div>
-    <div class="result-value" id="outKa">-</div>
+<div class="result-title">성토재 Ka</div>
+<div class="result-value" id="outKa">-</div>
 </div>
 
 <div class="result-box">
-    <div class="result-title">원지반 Kp</div>
-    <div class="result-value" id="outKp">-</div>
+<div class="result-title">원지반 Kp</div>
+<div class="result-value" id="outKp">-</div>
+</div>
+
+<div class="result-box">
+<div class="result-title">추천 간격</div>
+<div class="result-value" id="outSpacing">-</div>
 </div>
 
 </div>
 
-<div id="soilInfo" class="recommendation"></div>
+<div id="soilInfo" class="info-box"></div>
 
 </div>
 
 
+<!-- Geometry -->
 <div class="card">
 
-<h2>성토 단면 개념도</h2>
+<h2>성토 · 지하수 · H형강 단면 개념도</h2>
 
 <div class="geometry-box">
 
-<svg viewBox="0 0 800 250">
+<svg id="geometrySVG"
+viewBox="0 0 920 470"
+role="img"
+aria-label="성토폭, 경사, 성토높이, H형강 근입깊이 및 지하수위 개념도">
 
-    <!-- ground -->
-    <line x1="50" y1="205" x2="760" y2="205"
-          stroke="#666" stroke-width="2"/>
+<defs>
 
-    <!-- fill -->
-    <polygon id="fillPolygon"
-             points="100,205 550,100 550,205"
-             fill="#e39b53"
-             opacity="0.85"/>
+<marker id="arrowStart"
+markerWidth="8"
+markerHeight="8"
+refX="4"
+refY="4"
+orient="auto">
+<path d="M8,0 L0,4 L8,8"
+fill="none"
+stroke="#333"
+stroke-width="1.5"/>
+</marker>
 
-    <!-- pile -->
-    <line id="pileLine"
-          x1="550" y1="80"
-          x2="550" y2="240"
-          stroke="#2676a8"
-          stroke-width="14"/>
+<marker id="arrowEnd"
+markerWidth="8"
+markerHeight="8"
+refX="4"
+refY="4"
+orient="auto">
+<path d="M0,0 L8,4 L0,8"
+fill="none"
+stroke="#333"
+stroke-width="1.5"/>
+</marker>
 
-    <text id="svgB"
-          x="290" y="75"
-          font-size="16">B</text>
+</defs>
 
-    <text id="svgH"
-          x="575" y="145"
-          font-size="16">H</text>
+<text
+x="25"
+y="27"
+font-size="13"
+fill="#777">
+개념도 / 입력조건에 따라 자동 스케일 조정
+</text>
 
-    <text id="svgTheta"
-          x="125" y="190"
-          font-size="15">23°</text>
+
+<!-- right-side existing ground -->
+<line
+id="groundLine"
+x1="600"
+y1="275"
+x2="885"
+y2="275"
+stroke="#565656"
+stroke-width="3"/>
+
+<text
+id="groundLabel"
+x="690"
+y="265"
+font-size="14"
+font-weight="700"
+fill="#555">
+기존 GL
+</text>
+
+
+<!-- fill -->
+<polygon
+id="fillPolygon"
+points="150,140 600,140 600,275"
+fill="#dc9650"
+opacity="0.88"/>
+
+<line
+id="slopeLine"
+x1="150"
+y1="140"
+x2="600"
+y2="275"
+stroke="#765334"
+stroke-width="3"/>
+
+<text
+id="fillLabel"
+x="430"
+y="190"
+font-size="21"
+font-weight="700"
+fill="#51331e">
+성 토
+</text>
+
+<text
+id="slopeLabel"
+x="290"
+y="245"
+font-size="13"
+fill="#65452d">
+기존 사면
+</text>
+
+
+<!-- pile -->
+<line
+id="pileLine"
+x1="600"
+y1="115"
+x2="600"
+y2="420"
+stroke="#287293"
+stroke-width="18"/>
+
+<text
+id="pileLabel"
+x="620"
+y="115"
+font-size="14"
+font-weight="700"
+fill="#287293">
+H-300×300×15×15
+</text>
+
+
+<!-- lagging indicator -->
+<g id="boardLines"></g>
+
+<text
+id="boardLabel"
+x="485"
+y="175"
+font-size="12"
+fill="#5b5b5b">
+토류판
+</text>
+
+
+<!-- B -->
+<line
+id="dimBLine"
+x1="150"
+y1="95"
+x2="600"
+y2="95"
+stroke="#222"
+stroke-width="1.5"
+marker-start="url(#arrowStart)"
+marker-end="url(#arrowEnd)"/>
+
+<line
+id="dimBExtLeft"
+x1="150"
+y1="95"
+x2="150"
+y2="140"
+stroke="#999"/>
+
+<line
+id="dimBExtRight"
+x1="600"
+y1="95"
+x2="600"
+y2="140"
+stroke="#999"/>
+
+<text
+id="svgB"
+x="300"
+y="78"
+font-size="17"
+font-weight="700">
+성토폭 B
+</text>
+
+
+<!-- H -->
+<line
+id="dimHLine"
+x1="665"
+y1="140"
+x2="665"
+y2="275"
+stroke="#222"
+stroke-width="1.5"
+marker-start="url(#arrowStart)"
+marker-end="url(#arrowEnd)"/>
+
+<line
+id="dimHTop"
+x1="600"
+y1="140"
+x2="680"
+y2="140"
+stroke="#999"/>
+
+<line
+id="dimHBottom"
+x1="600"
+y1="275"
+x2="680"
+y2="275"
+stroke="#999"/>
+
+<text
+id="svgH"
+x="680"
+y="210"
+font-size="16"
+font-weight="700">
+H
+</text>
+
+
+<!-- D -->
+<line
+id="dimDLine"
+x1="790"
+y1="275"
+x2="790"
+y2="420"
+stroke="#222"
+stroke-width="1.5"
+marker-start="url(#arrowStart)"
+marker-end="url(#arrowEnd)"/>
+
+<line
+id="dimDTop"
+x1="600"
+y1="275"
+x2="805"
+y2="275"
+stroke="#999"/>
+
+<line
+id="dimDBottom"
+x1="600"
+y1="420"
+x2="805"
+y2="420"
+stroke="#999"/>
+
+<text
+id="svgD"
+x="805"
+y="355"
+font-size="16"
+font-weight="700">
+D
+</text>
+
+
+<!-- angle -->
+<text
+id="svgTheta"
+x="185"
+y="150"
+font-size="15"
+font-weight="700">
+23°
+</text>
+
+
+<!-- Fill/back groundwater -->
+<g id="fillGWGroup">
+<line
+id="fillGWLine"
+x1="300"
+y1="205"
+x2="600"
+y2="205"
+stroke="#137cae"
+stroke-width="3"
+stroke-dasharray="10 7"/>
+
+<text
+id="fillGWLabel"
+x="310"
+y="195"
+font-size="13"
+font-weight="700"
+fill="#137cae">
+배면 GWL
+</text>
+</g>
+
+
+<!-- Native/front groundwater -->
+<g id="nativeGWGroup">
+<line
+id="nativeGWLine"
+x1="600"
+y1="340"
+x2="885"
+y2="340"
+stroke="#2b93bd"
+stroke-width="3"
+stroke-dasharray="10 7"/>
+
+<text
+id="nativeGWLabel"
+x="690"
+y="330"
+font-size="13"
+font-weight="700"
+fill="#2b93bd">
+굴착측 GWL
+</text>
+</g>
+
+
+<text
+id="gwOutsideLabel"
+x="25"
+y="452"
+font-size="12"
+fill="#176f9d">
+</text>
 
 </svg>
 
 </div>
 
+<div class="legend">
+
+<div class="legend-item">
+<span class="legend-swatch" style="background:#dc9650"></span>
+성토
+</div>
+
+<div class="legend-item">
+<span class="legend-swatch" style="background:#287293"></span>
+H형강
+</div>
+
+<div class="legend-item">
+<span class="legend-swatch"
+style="border-top:3px dashed #137cae"></span>
+배면 지하수위
+</div>
+
+<div class="legend-item">
+<span class="legend-swatch"
+style="border-top:3px dashed #2b93bd"></span>
+굴착측 지하수위
+</div>
+
+</div>
+
 </div>
 
 
+<!-- Pressure -->
 <div class="card">
 
-<h2>간격별 필요 근입깊이 및 H형강 검토</h2>
+<h2>토압분포 개념도</h2>
+
+<div class="geometry-box">
+
+<svg
+id="pressureSVG"
+viewBox="0 0 920 420"
+role="img"
+aria-label="성토측 주동토압과 근입부 수동토압 분포">
+
+<text
+x="25"
+y="25"
+font-size="13"
+fill="#777">
+단위면적 토압 분포 / 수압 포함
+</text>
+
+<line
+id="pressurePile"
+x1="450"
+y1="45"
+x2="450"
+y2="380"
+stroke="#444"
+stroke-width="3"/>
+
+<line
+id="pressureGL"
+x1="230"
+y1="205"
+x2="700"
+y2="205"
+stroke="#777"
+stroke-width="2"
+stroke-dasharray="5 5"/>
+
+<text
+x="455"
+y="199"
+font-size="12"
+fill="#555">
+GL
+</text>
+
+<path
+id="activeFillPath"
+d=""
+fill="#e59b52"
+opacity="0.60"
+stroke="#b86b2b"
+stroke-width="2"/>
+
+<path
+id="activeEmbedPath"
+d=""
+fill="#e8b173"
+opacity="0.50"
+stroke="#b77d40"
+stroke-width="2"/>
+
+<path
+id="passivePath"
+d=""
+fill="#68a6ad"
+opacity="0.55"
+stroke="#397c83"
+stroke-width="2"/>
+
+<text
+id="activeFillLabel"
+x="55"
+y="100"
+font-size="14"
+font-weight="700"
+fill="#a95f27">
+성토부 주동토압
+</text>
+
+<text
+id="activeEmbedLabel"
+x="55"
+y="275"
+font-size="13"
+font-weight="700"
+fill="#a46d38">
+근입부 배면토압
+</text>
+
+<text
+id="passiveLabel"
+x="615"
+y="290"
+font-size="14"
+font-weight="700"
+fill="#397c83">
+저감 후 수동토압
+</text>
+
+<text
+id="pressureMaxLabel"
+x="25"
+y="400"
+font-size="12"
+fill="#555">
+</text>
+
+</svg>
+
+</div>
+
+<div class="small-note">
+왼쪽은 H형강을 미는 방향의 토압,
+오른쪽은 원지반 근입부에서 발휘되는 저항 토압입니다.
+수동토압에는 입력한 ηp 저감계수가 적용됩니다.
+</div>
+
+</div>
+
+
+<!-- Candidate result -->
+<div class="card">
+
+<h2>간격별 H형강 및 토류판 검토</h2>
+
+<div class="table-wrap">
 
 <table>
 
 <thead>
 <tr>
-    <th>H형강 간격 S<br>(m)</th>
-    <th>유효 수동폭 Bp<br>(m)</th>
-    <th>토압 모멘트<br>(kN·m/pile)</th>
-    <th>필요 근입 D<br>(m)</th>
-    <th>전체 H형강 길이<br>(m)</th>
-    <th>모멘트 이용률</th>
-    <th>H형강량 지수<br>(m/m)</th>
-    <th>판정</th>
+<th>간격 S<br>(m)</th>
+<th>수동폭 Bp<br>(m)</th>
+<th>H형강 검토M<br>(kN·m)</th>
+<th>필요근입 D<br>(m)</th>
+<th>전체길이<br>(m)</th>
+<th>H형강<br>이용률</th>
+<th>토류판<br>이용률</th>
+<th>강재량 지수<br>(m/m)</th>
+<th>판정</th>
 </tr>
 </thead>
 
@@ -579,9 +1239,11 @@
 
 </table>
 
+</div>
+
 <div class="small-note">
-    H형강량 지수 = (성토높이 + 근입깊이) / H형강 간격 입니다.
-    동일 단면을 사용하는 경우 상대적인 경제성 비교용으로 사용할 수 있습니다.
+강재량 지수 = (성토높이 + 근입깊이) / H형강 간격.<br>
+동일 단면을 사용하는 후보안 사이의 상대적 경제성 비교지표입니다.
 </div>
 
 </div>
@@ -589,9 +1251,9 @@
 
 <div class="card">
 
-<h2>간격 - 근입깊이 관계</h2>
+<h2>H형강 간격과 필요 근입깊이</h2>
 
-<canvas id="chart" width="850" height="280"></canvas>
+<canvas id="chart" width="900" height="300"></canvas>
 
 </div>
 
@@ -600,8 +1262,8 @@
 
 <h2>추천안</h2>
 
-<div id="recommendation" class="recommendation">
-    계산 중...
+<div id="recommendation" class="info-box">
+계산 중...
 </div>
 
 </div>
@@ -611,44 +1273,67 @@
 
 <h2>H형강 단면 계산값</h2>
 
-<table>
-<tr>
-    <th>단면적 A</th>
-    <th>Ix</th>
-    <th>Zx</th>
-    <th>탄성 항복모멘트 Fy·Zx</th>
-    <th>예비 허용모멘트</th>
-</tr>
+<div class="table-wrap">
 
+<table>
+<thead>
 <tr>
-    <td id="outArea">-</td>
-    <td id="outIx">-</td>
-    <td id="outZx">-</td>
-    <td id="outMy">-</td>
-    <td id="outMa">-</td>
+<th>A</th>
+<th>Ix</th>
+<th>Zx</th>
+<th>Fy·Zx</th>
+<th>예비 허용M</th>
 </tr>
+</thead>
+
+<tbody>
+<tr>
+<td id="outArea">-</td>
+<td id="outIx">-</td>
+<td id="outZx">-</td>
+<td id="outMy">-</td>
+<td id="outMa">-</td>
+</tr>
+</tbody>
+
 </table>
 
 </div>
 
+<ul class="assumption-list">
+<li>H형강 필렛은 무시하고 사각요소 조합으로 단면성능을 산정합니다.</li>
+<li>H형강 구조검토는 주동토압 모멘트에 보정계수 kM을 적용한 예비 스크리닝입니다.</li>
+<li>근입깊이는 GL 기준 모멘트 평형에 기반한 단순화된 해입니다.</li>
+<li>토류판은 양단 단순지지, 최대토압 작용으로 보수적으로 검토합니다.</li>
+</ul>
+
 </div>
 
 </div>
+
+</div>
+
 </div>
 
 
 <script>
+(() => {
+
+"use strict";
 
 /* =========================================================
-   Basic utilities
+   Utilities
 ========================================================= */
 
 const $ = id => document.getElementById(id);
 
 const gammaW = 9.81;
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+
 function num(id) {
-    return parseFloat($(id).value) || 0;
+    const v = parseFloat($(id).value);
+    return Number.isFinite(v) ? v : 0;
 }
 
 function deg2rad(deg) {
@@ -661,78 +1346,232 @@ function clamp(value, min, max) {
 
 
 /* =========================================================
-   Rankine coefficients
+   Defaults
+========================================================= */
+
+const defaults = {
+
+    B: "5.10",
+    theta: "23",
+    heightMode: "auto",
+    manualH: "2.16",
+    surcharge: "10",
+
+    gammaFill: "18",
+    phiFill: "30",
+    cFill: "0",
+    fillGWEnabled: false,
+    gwFill: "1.20",
+
+    nativeMode: "drained",
+    gammaNative: "19",
+    phiNative: "30",
+    cNative: "0",
+    Su: "50",
+    nativeGWEnabled: false,
+    gwNative: "1.50",
+
+    etaPassive: "0.50",
+    passiveWidthFactor: "3.0",
+    embedFS: "1.50",
+    maxEmbed: "8.0",
+
+    pileH: "300",
+    pileB: "300",
+    tw: "15",
+    tf: "15",
+    Fy: "275",
+    capacityFactor: "0.60",
+    momentFactor: "1.25",
+
+    boardHeight: "0.20",
+    boardThickness: "80",
+    boardAllowStress: "8",
+
+    spacingList: "1.0, 1.2, 1.5, 1.8, 2.0"
+};
+
+
+/* =========================================================
+   Rankine
 ========================================================= */
 
 function rankine(phiDeg) {
 
-    const phi = deg2rad(phiDeg);
+    const safePhi =
+        clamp(phiDeg, 0, 50);
+
+    const phi =
+        deg2rad(safePhi);
 
     const Ka =
         Math.pow(
             Math.tan(
                 Math.PI / 4 - phi / 2
-            ), 2
+            ),
+            2
         );
 
     const Kp =
         Math.pow(
             Math.tan(
                 Math.PI / 4 + phi / 2
-            ), 2
+            ),
+            2
         );
 
-    return { Ka, Kp };
+    return {
+        Ka,
+        Kp
+    };
 }
 
 
 /* =========================================================
-   Effective stress
-   depth : m
-   gamma : kN/m3
-   zw    : groundwater depth below reference surface
+   Effective stress / water pressure
 ========================================================= */
 
-function effectiveVerticalStress(depth, gamma, zw) {
+function effectiveStress(
+    depth,
+    gamma,
+    waterEnabled,
+    waterDepth
+) {
 
-    if (depth <= 0) return 0;
+    if (depth <= 0)
+        return 0;
 
-    if (zw >= depth) {
+    if (!waterEnabled)
         return gamma * depth;
+
+    const zw =
+        Math.max(waterDepth, 0);
+
+    if (depth <= zw)
+        return gamma * depth;
+
+    const gammaSub =
+        Math.max(
+            gamma - gammaW,
+            0
+        );
+
+    return (
+        gamma * zw
+        +
+        gammaSub * (depth - zw)
+    );
+}
+
+
+function waterPressure(
+    depth,
+    waterEnabled,
+    waterDepth
+) {
+
+    if (!waterEnabled)
+        return 0;
+
+    if (depth <= waterDepth)
+        return 0;
+
+    return gammaW *
+        (depth - waterDepth);
+}
+
+
+/*
+   Native soil effective stress BEHIND wall.
+
+   Back groundwater reference:
+   fill top.
+*/
+function backNativeEffectiveStress(y, H) {
+
+    const gamma =
+        num("gammaNative");
+
+    const enabled =
+        $("fillGWEnabled").checked;
+
+    if (!enabled)
+        return gamma * y;
+
+    const gwFromTop =
+        Math.max(
+            num("gwFill"),
+            0
+        );
+
+    const gwRelativeGL =
+        gwFromTop - H;
+
+    const gammaSub =
+        Math.max(
+            gamma - gammaW,
+            0
+        );
+
+
+    /*
+       Water table above GL
+    */
+
+    if (gwRelativeGL <= 0) {
+
+        return gammaSub * y;
     }
 
-    const gammaSub = Math.max(gamma - gammaW, 0);
 
-    return gamma * Math.max(zw, 0)
-         + gammaSub * Math.max(depth - zw, 0);
-}
+    /*
+       Point above water table
+    */
+
+    if (y <= gwRelativeGL) {
+
+        return gamma * y;
+    }
 
 
-function waterPressure(depth, zw) {
+    /*
+       Point crosses water table
+    */
 
-    if (depth <= zw) return 0;
-
-    return gammaW * (depth - zw);
+    return (
+        gamma * gwRelativeGL
+        +
+        gammaSub *
+        (y - gwRelativeGL)
+    );
 }
 
 
 /* =========================================================
-   Numerical integration - Simpson-like midpoint method
+   Numerical integration
 ========================================================= */
 
-function integrate(fn, a, b, n = 400) {
+function integrate(fn, a, b, n = 450) {
 
-    if (b <= a) return 0;
+    if (b <= a)
+        return 0;
 
-    const dx = (b - a) / n;
+    const dx =
+        (b - a) / n;
 
     let sum = 0;
 
     for (let i = 0; i < n; i++) {
 
-        const x = a + (i + 0.5) * dx;
+        const x =
+            a +
+            (i + 0.5) * dx;
 
-        sum += fn(x) * dx;
+        const value =
+            fn(x);
+
+        if (Number.isFinite(value))
+            sum += value * dx;
     }
 
     return sum;
@@ -745,255 +1584,414 @@ function integrate(fn, a, b, n = 400) {
 
 function getGeometry() {
 
-    const B = num("B");
-    const theta = num("theta");
+    const B =
+        Math.max(
+            num("B"),
+            0
+        );
+
+    const theta =
+        clamp(
+            num("theta"),
+            0.1,
+            80
+        );
 
     let H;
 
-    if ($("heightMode").value === "manual") {
-        H = num("manualH");
+    if (
+        $("heightMode").value
+        === "manual"
+    ) {
+
+        H =
+            Math.max(
+                num("manualH"),
+                0
+            );
     }
     else {
-        H = B * Math.tan(deg2rad(theta));
+
+        H =
+            B *
+            Math.tan(
+                deg2rad(theta)
+            );
     }
 
-    return { B, theta, H };
+    return {
+        B,
+        theta,
+        H
+    };
 }
 
 
 /* =========================================================
-   Fill-side active earth pressure
-   z = depth from top of fill
+   Fill-side pressure
+   z = depth measured from fill top
 ========================================================= */
 
 function fillPressure(z, H) {
 
-    const gamma = num("gammaFill");
-    const phi = num("phiFill");
-    const c = num("cFill");
-    const q = num("surcharge");
-    const zw = num("gwFill");
+    const gamma =
+        num("gammaFill");
 
-    const { Ka } = rankine(phi);
+    const phi =
+        num("phiFill");
 
-    const sigmaEff =
-        effectiveVerticalStress(z, gamma, zw);
-
-    const cohesionTerm =
-        2 * c * Math.sqrt(Ka);
-
-    const soilPressure =
+    const c =
         Math.max(
-            Ka * (q + sigmaEff) - cohesionTerm,
+            num("cFill"),
             0
         );
 
-    const u = waterPressure(z, zw);
+    const q =
+        Math.max(
+            num("surcharge"),
+            0
+        );
 
-    return soilPressure + u;
+    const waterEnabled =
+        $("fillGWEnabled").checked;
+
+    const zw =
+        num("gwFill");
+
+    const { Ka } =
+        rankine(phi);
+
+    const sigmaEff =
+        effectiveStress(
+            z,
+            gamma,
+            waterEnabled,
+            zw
+        );
+
+    const soil =
+        Math.max(
+            Ka *
+            (q + sigmaEff)
+            -
+            2 * c * Math.sqrt(Ka),
+            0
+        );
+
+    const u =
+        waterPressure(
+            z,
+            waterEnabled,
+            zw
+        );
+
+    return soil + u;
 }
 
 
 /* =========================================================
-   Native ground pressure
-   y = depth below original ground level
+   Embedded native pressures
+
+   y = depth below GL
+
+   Returns:
+   active  = pressure from retained/back side
+   passive = resisting/front side pressure
 ========================================================= */
 
 function nativePressures(y, H) {
 
-    const mode = $("nativeMode").value;
+    const mode =
+        $("nativeMode").value;
 
-    const gammaN = num("gammaNative");
-    const gammaF = num("gammaFill");
+    const gammaN =
+        num("gammaNative");
 
-    const q = num("surcharge");
+    const gammaF =
+        num("gammaFill");
 
-    const zwN = num("gwNative");
-    const zwF = num("gwFill");
+    const q =
+        Math.max(
+            num("surcharge"),
+            0
+        );
 
-    const etaP = num("etaPassive");
+    const etaP =
+        clamp(
+            num("etaPassive"),
+            0,
+            1
+        );
+
 
     /*
-       Vertical overburden from fill at existing ground
+       -------------------------------------------------
+       Undrained total-stress analysis
+       -------------------------------------------------
     */
 
     if (mode === "undrained") {
 
-        const Su = num("Su");
-
-        /*
-            Simplified phi = 0 total-stress approach.
-
-            Active:
-              sigma_h = sigma_v - 2Su
-
-            Passive:
-              sigma_h = sigma_v + 2Su
-        */
-
-        const sigmaFillBottom =
-            gammaF * H;
+        const Su =
+            Math.max(
+                num("Su"),
+                0
+            );
 
         const sigmaBack =
             q
-            + sigmaFillBottom
-            + gammaN * y;
+            +
+            gammaF * H
+            +
+            gammaN * y;
 
         const sigmaFront =
             gammaN * y;
 
-        const pBack =
+        const active =
             Math.max(
-                sigmaBack - 2 * Su,
+                sigmaBack
+                -
+                2 * Su,
                 0
             );
 
-        const pFront =
-            etaP * Math.max(
-                sigmaFront + 2 * Su,
+        const passive =
+            etaP *
+            Math.max(
+                sigmaFront
+                +
+                2 * Su,
                 0
             );
 
         return {
-            active: pBack,
-            passive: pFront
+            active,
+            passive
         };
     }
 
 
     /*
-        Drained c-phi approach
+       -------------------------------------------------
+       Drained c-phi analysis
+       -------------------------------------------------
     */
 
-    const phiN = num("phiNative");
-    const cN = num("cNative");
+    const phiN =
+        num("phiNative");
 
-    const { Ka, Kp } = rankine(phiN);
-
-    const fillBottomEff =
-        effectiveVerticalStress(
-            H,
-            gammaF,
-            zwF
+    const cN =
+        Math.max(
+            num("cNative"),
+            0
         );
 
-    const nativeEff =
-        effectiveVerticalStress(
-            y,
-            gammaN,
-            zwN
-        );
+    const {
+        Ka,
+        Kp
+    } =
+        rankine(phiN);
+
 
     /*
-       Back-side active pressure below original ground
+       Effective vertical stress due to fill
+       at GL
     */
+
+    const fillEffAtGL =
+        effectiveStress(
+            H,
+            gammaF,
+            $("fillGWEnabled").checked,
+            num("gwFill")
+        );
+
+
+    /*
+       Back-side native effective stress
+    */
+
+    const nativeBackEff =
+        backNativeEffectiveStress(
+            y,
+            H
+        );
 
     const sigmaBackEff =
         q
-        + fillBottomEff
-        + nativeEff;
+        +
+        fillEffAtGL
+        +
+        nativeBackEff;
 
-    let pBackSoil =
+
+    let activeSoil =
         Ka * sigmaBackEff
-        - 2 * cN * Math.sqrt(Ka);
+        -
+        2 * cN * Math.sqrt(Ka);
 
-    pBackSoil =
-        Math.max(pBackSoil, 0);
-
-
-    /*
-       Hydrostatic pressure behind wall.
-
-       Treat fill water depth as measured from top of fill.
-    */
-
-    const uBack =
-        waterPressure(
-            H + y,
-            zwF
+    activeSoil =
+        Math.max(
+            activeSoil,
+            0
         );
 
 
     /*
-       Front-side passive pressure
+       Back water pressure:
+       water depth measured from fill top
     */
 
-    let pFrontSoil =
-        Kp * nativeEff
-        + 2 * cN * Math.sqrt(Kp);
+    const backWater =
+        waterPressure(
+            H + y,
+            $("fillGWEnabled").checked,
+            num("gwFill")
+        );
 
-    pFrontSoil =
-        Math.max(pFrontSoil, 0);
 
-    pFrontSoil *= etaP;
+    /*
+       Front-side native effective stress
+    */
 
-    const uFront =
+    const nativeFrontEff =
+        effectiveStress(
+            y,
+            gammaN,
+            $("nativeGWEnabled").checked,
+            num("gwNative")
+        );
+
+
+    let passiveSoil =
+        Kp * nativeFrontEff
+        +
+        2 * cN * Math.sqrt(Kp);
+
+    passiveSoil =
+        Math.max(
+            passiveSoil,
+            0
+        );
+
+    passiveSoil *=
+        etaP;
+
+
+    const frontWater =
         waterPressure(
             y,
-            zwN
+            $("nativeGWEnabled").checked,
+            num("gwNative")
         );
 
 
     return {
 
         active:
-            pBackSoil + uBack,
+            activeSoil +
+            backWater,
 
         passive:
-            pFrontSoil + uFront
+            passiveSoil +
+            frontWater
     };
 }
 
 
 /* =========================================================
-   H section properties
-   ignoring root fillets
+   H-section properties
+
+   Simple rectangular assembly.
+   Fillets ignored.
 ========================================================= */
 
 function sectionProperties() {
 
-    const h = num("pileH");
-    const b = num("pileB");
-    const tw = num("tw");
-    const tf = num("tf");
+    const h =
+        Math.max(
+            num("pileH"),
+            1
+        );
+
+    const b =
+        Math.max(
+            num("pileB"),
+            1
+        );
+
+    const tw =
+        Math.max(
+            num("tw"),
+            1
+        );
+
+    const tf =
+        Math.max(
+            num("tf"),
+            1
+        );
 
     const hw =
-        h - 2 * tf;
+        Math.max(
+            h - 2 * tf,
+            1
+        );
 
     const A =
         2 * b * tf
-        + hw * tw;
+        +
+        hw * tw;
 
     const d =
-        h / 2 - tf / 2;
+        h / 2
+        -
+        tf / 2;
 
     const IxFlange =
-        b * Math.pow(tf, 3) / 12
-        + b * tf * Math.pow(d, 2);
+        b *
+        Math.pow(tf, 3) / 12
+        +
+        b * tf *
+        Math.pow(d, 2);
 
     const IxWeb =
-        tw * Math.pow(hw, 3) / 12;
+        tw *
+        Math.pow(hw, 3) / 12;
 
     const Ix =
-        2 * IxFlange + IxWeb;
+        2 * IxFlange
+        +
+        IxWeb;
 
     const Zx =
-        Ix / (h / 2);
+        Ix /
+        (h / 2);
 
     const Fy =
-        num("Fy");
+        Math.max(
+            num("Fy"),
+            0
+        );
 
     /*
-       Fy MPa = N/mm2
-       Z mm3
-       N.mm --> kN.m : / 1e6
+       MPa * mm3 = N mm
+
+       1 kN m = 1e6 N mm
     */
 
     const My =
-        Fy * Zx / 1e6;
+        Fy *
+        Zx /
+        1e6;
 
     const Ma =
-        My * num("capacityFactor");
+        My *
+        Math.max(
+            num("capacityFactor"),
+            0
+        );
 
     return {
         A,
@@ -1006,24 +2004,32 @@ function sectionProperties() {
 
 
 /* =========================================================
-   Driving moment produced by retained fill
+   Driving moment from retained fill
 
-   Pressure is kN/m2
-   spacing S is m
+   Moment about GL.
 
-   line load = pressure * S = kN/m
-
-   M about original ground:
-       integral p(z)*S*(H-z) dz
+   p : kN/m2
+   p*S : kN/m pile
 ========================================================= */
 
 function drivingMoment(H, spacing) {
 
+    if (H <= 0)
+        return 0;
+
     return integrate(
-        z =>
-            fillPressure(z, H)
-            * spacing
-            * (H - z),
+
+        z => {
+
+            return (
+                fillPressure(z, H)
+                *
+                spacing
+                *
+                (H - z)
+            );
+        },
+
         0,
         H
     );
@@ -1031,31 +2037,43 @@ function drivingMoment(H, spacing) {
 
 
 /* =========================================================
-   Passive effective width
-
-   Bp = min(spacing, kb * flange width)
+   Passive resistance width
 ========================================================= */
 
 function passiveWidth(spacing) {
 
-    const flangeWidth =
-        num("pileB") / 1000;
+    const pileWidth =
+        Math.max(
+            num("pileB") / 1000,
+            0.001
+        );
 
     const kb =
-        num("passiveWidthFactor");
+        Math.max(
+            num("passiveWidthFactor"),
+            0
+        );
 
     return Math.min(
         spacing,
-        kb * flangeWidth
+        kb * pileWidth
     );
 }
 
 
 /* =========================================================
-   Resisting moment from embedded native soil
+   Embedded resisting moment
+
+   IMPORTANT:
+   - Back-side active pressure acts over pile spacing S.
+   - Front passive pressure acts over effective passive width Bp.
 ========================================================= */
 
-function resistingMoment(D, H, spacing) {
+function resistingMoment(
+    D,
+    H,
+    spacing
+) {
 
     const Bp =
         passiveWidth(spacing);
@@ -1065,20 +2083,20 @@ function resistingMoment(D, H, spacing) {
         y => {
 
             const p =
-                nativePressures(y, H);
+                nativePressures(
+                    y,
+                    H
+                );
 
-            /*
-                Net resisting lateral pressure
-            */
+            const forcePerDepth =
+                p.passive * Bp
+                -
+                p.active * spacing;
 
-            const net =
-                p.passive - p.active;
-
-            /*
-                Signed moment contribution
-            */
-
-            return net * Bp * y;
+            return (
+                forcePerDepth *
+                y
+            );
         },
 
         0,
@@ -1088,57 +2106,80 @@ function resistingMoment(D, H, spacing) {
 
 
 /* =========================================================
-   Solve required embedment depth
+   Required embedment solver
 
    Mres >= FS * Mdrive
 ========================================================= */
 
-function solveEmbedment(H, spacing) {
+function solveEmbedment(
+    H,
+    spacing
+) {
 
     const FS =
-        num("embedFS");
+        Math.max(
+            num("embedFS"),
+            1
+        );
 
     const Mdrive =
-        drivingMoment(H, spacing);
+        drivingMoment(
+            H,
+            spacing
+        );
 
     const target =
-        FS * Mdrive;
+        FS *
+        Mdrive;
 
-    let low = 0.05;
-    let high = 0.50;
+    if (target <= 0)
+        return 0.10;
 
-    const searchLimit = 20;
+    let low =
+        0.05;
+
+    let high =
+        0.50;
+
+    const searchLimit =
+        25;
+
 
     /*
-       Expand high until resistance exceeds target
+       Expand search interval
     */
 
     while (
+        high < searchLimit
+        &&
         resistingMoment(
             high,
             H,
             spacing
         ) < target
-        &&
-        high < searchLimit
     ) {
+
         high *= 1.35;
     }
 
 
-    if (high >= searchLimit) {
+    if (
+        high >= searchLimit
+    ) {
+
+        high =
+            searchLimit;
 
         if (
             resistingMoment(
-                searchLimit,
+                high,
                 H,
                 spacing
             ) < target
         ) {
+
             return Infinity;
         }
-
-        high = searchLimit;
     }
 
 
@@ -1146,7 +2187,11 @@ function solveEmbedment(H, spacing) {
        Bisection
     */
 
-    for (let i = 0; i < 60; i++) {
+    for (
+        let i = 0;
+        i < 70;
+        i++
+    ) {
 
         const mid =
             (low + high) / 2;
@@ -1169,41 +2214,191 @@ function solveEmbedment(H, spacing) {
 
 
 /* =========================================================
+   Maximum fill pressure
+========================================================= */
+
+function maximumFillPressure(H) {
+
+    if (H <= 0)
+        return 0;
+
+    let maxP = 0;
+
+    const n = 100;
+
+    for (let i = 0; i <= n; i++) {
+
+        const z =
+            H * i / n;
+
+        maxP =
+            Math.max(
+                maxP,
+                fillPressure(
+                    z,
+                    H
+                )
+            );
+    }
+
+    return maxP;
+}
+
+
+/* =========================================================
+   Lagging / board bending check
+
+   Single board:
+   line load = pressure * board height
+
+   M = w L2 / 8
+
+   Section modulus:
+   Z = boardHeight * thickness2 / 6
+
+   Here boardHeight and thickness are beam section
+   dimensions perpendicular to pile spacing.
+========================================================= */
+
+function boardCheck(
+    H,
+    spacing
+) {
+
+    const hb =
+        Math.max(
+            num("boardHeight"),
+            0.01
+        );
+
+    const thickness =
+        Math.max(
+            num("boardThickness"),
+            1
+        );
+
+    const fb =
+        Math.max(
+            num("boardAllowStress"),
+            0.01
+        );
+
+    const pMax =
+        maximumFillPressure(H);
+
+
+    /*
+       kPa = kN/m2
+
+       line load on one board:
+       kN/m
+    */
+
+    const w =
+        pMax *
+        hb;
+
+
+    const M =
+        w *
+        spacing *
+        spacing /
+        8;
+
+
+    /*
+       mm3
+    */
+
+    const hbMM =
+        hb * 1000;
+
+    const Z =
+        hbMM *
+        thickness *
+        thickness /
+        6;
+
+
+    /*
+       MPa * mm3 --> kNm
+    */
+
+    const capacity =
+        fb *
+        Z /
+        1e6;
+
+
+    const utilization =
+        capacity > 0
+        ? M / capacity
+        : Infinity;
+
+
+    return {
+        pMax,
+        w,
+        M,
+        Z,
+        capacity,
+        utilization
+    };
+}
+
+
+/* =========================================================
    Soil presets
 ========================================================= */
 
 function presetSand() {
 
-    $("nativeMode").value = "drained";
+    $("nativeMode").value =
+        "drained";
 
-    $("gammaNative").value = 19;
-    $("phiNative").value = 32;
-    $("cNative").value = 0;
+    $("gammaNative").value =
+        "19";
 
-    updateModeVisibility();
-    calculate();
-}
+    $("phiNative").value =
+        "32";
 
-
-function presetClayDrained() {
-
-    $("nativeMode").value = "drained";
-
-    $("gammaNative").value = 18;
-    $("phiNative").value = 25;
-    $("cNative").value = 10;
+    $("cNative").value =
+        "0";
 
     updateModeVisibility();
     calculate();
 }
 
 
-function presetClaySu() {
+function presetClay() {
 
-    $("nativeMode").value = "undrained";
+    $("nativeMode").value =
+        "drained";
 
-    $("gammaNative").value = 18;
-    $("Su").value = 50;
+    $("gammaNative").value =
+        "18";
+
+    $("phiNative").value =
+        "25";
+
+    $("cNative").value =
+        "10";
+
+    updateModeVisibility();
+    calculate();
+}
+
+
+function presetSu() {
+
+    $("nativeMode").value =
+        "undrained";
+
+    $("gammaNative").value =
+        "18";
+
+    $("Su").value =
+        "50";
 
     updateModeVisibility();
     calculate();
@@ -1211,7 +2406,7 @@ function presetClaySu() {
 
 
 /* =========================================================
-   Display mode
+   UI visibility
 ========================================================= */
 
 function updateModeVisibility() {
@@ -1219,15 +2414,30 @@ function updateModeVisibility() {
     const mode =
         $("nativeMode").value;
 
-    $("drainedFields").style.display =
+    $("drainedFields")
+        .style.display =
         mode === "drained"
         ? "block"
         : "none";
 
-    $("suFields").style.display =
+    $("suFields")
+        .style.display =
         mode === "undrained"
         ? "block"
         : "none";
+
+
+    $("manualH").disabled =
+        $("heightMode").value
+        !== "manual";
+
+
+    $("gwFill").disabled =
+        !$("fillGWEnabled").checked;
+
+
+    $("gwNative").disabled =
+        !$("nativeGWEnabled").checked;
 }
 
 
@@ -1235,96 +2445,328 @@ function updateModeVisibility() {
    Geometry SVG
 ========================================================= */
 
-function updateGeometrySVG(B, H, theta) {
+function updateGeometrySVG(
+    B,
+    H,
+    theta,
+    embedmentD,
+    boardCount
+) {
+
+    const wallX =
+        600;
+
+    const groundY =
+        275;
+
+    let D =
+        Number.isFinite(embedmentD)
+        ? Math.max(embedmentD, 0.1)
+        : 2.0;
+
 
     /*
-       Diagram is schematic, not exact scale.
+       Vertical scaling
     */
 
-    const wallX = 575;
+    const maxAbove =
+        145;
 
-    const groundY = 205;
+    const maxBelow =
+        135;
 
-    const maxDisplayH = 140;
-
-    const visualH =
+    let pxPerM =
         Math.min(
-            120,
-            Math.max(
-                35,
-                H * 45
-            )
+            65,
+            maxAbove /
+                Math.max(H, 0.1),
+            maxBelow /
+                Math.max(D, 0.1)
         );
 
-    let run =
-        visualH
-        / Math.max(
-            Math.tan(deg2rad(theta)),
+    pxPerM =
+        Math.max(
+            pxPerM,
+            12
+        );
+
+
+    const visualH =
+        Math.max(
+            30,
+            H * pxPerM
+        );
+
+    const visualD =
+        Math.max(
+            30,
+            D * pxPerM
+        );
+
+    const topY =
+        groundY -
+        visualH;
+
+    const pileBottomY =
+        Math.min(
+            groundY +
+            visualD,
+            425
+        );
+
+
+    /*
+       Horizontal slope run.
+
+       Keep schematic inside SVG but try to
+       respect slope relationship.
+    */
+
+    let visualRun =
+        visualH /
+        Math.max(
+            Math.tan(
+                deg2rad(theta)
+            ),
             0.01
         );
 
-    run =
-        Math.min(
-            470,
-            Math.max(
-                100,
-                run
-            )
+    visualRun =
+        clamp(
+            visualRun,
+            160,
+            500
         );
 
     const leftX =
-        wallX - run;
+        wallX -
+        visualRun;
 
-    const topY =
-        groundY - visualH;
 
-    $("fillPolygon").setAttribute(
+    /*
+       Fill triangular wedge
+
+       top = horizontal fill surface
+       lower line = original slope
+    */
+
+    $("fillPolygon")
+    .setAttribute(
         "points",
-        `${leftX},${groundY}
-         ${leftX},${topY}
-         ${wallX},${topY}
-         ${wallX},${groundY}`
+        [
+            `${leftX},${topY}`,
+            `${wallX},${topY}`,
+            `${wallX},${groundY}`
+        ].join(" ")
     );
 
-    $("pileLine").setAttribute(
+
+    $("slopeLine")
+    .setAttribute(
         "x1",
-        wallX
+        leftX
     );
 
-    $("pileLine").setAttribute(
+    $("slopeLine")
+    .setAttribute(
+        "y1",
+        topY
+    );
+
+    $("slopeLine")
+    .setAttribute(
         "x2",
         wallX
     );
 
-    $("pileLine").setAttribute(
-        "y1",
-        topY - 15
-    );
-
-    $("pileLine").setAttribute(
+    $("slopeLine")
+    .setAttribute(
         "y2",
-        240
+        groundY
     );
 
-    $("svgB").setAttribute(
+
+    $("fillLabel")
+    .setAttribute(
         "x",
-        (leftX + wallX) / 2 - 20
+        wallX -
+        visualRun * 0.36
     );
 
-    $("svgB").setAttribute(
+    $("fillLabel")
+    .setAttribute(
         "y",
-        topY - 10
+        topY +
+        visualH * 0.38
+    );
+
+
+    $("slopeLabel")
+    .setAttribute(
+        "x",
+        leftX +
+        visualRun * 0.35
+    );
+
+    $("slopeLabel")
+    .setAttribute(
+        "y",
+        groundY -
+        visualH * 0.18
+    );
+
+
+    /*
+       H-pile
+    */
+
+    $("pileLine")
+    .setAttribute(
+        "y1",
+        Math.max(
+            topY - 18,
+            38
+        )
+    );
+
+    $("pileLine")
+    .setAttribute(
+        "y2",
+        pileBottomY
+    );
+
+
+    $("pileLabel")
+    .setAttribute(
+        "y",
+        Math.max(
+            topY - 5,
+            48
+        )
+    );
+
+
+    /*
+       Fill width B
+    */
+
+    const bDimensionY =
+        Math.max(
+            topY - 34,
+            55
+        );
+
+    $("dimBLine")
+    .setAttribute(
+        "x1",
+        leftX
+    );
+
+    $("dimBLine")
+    .setAttribute(
+        "x2",
+        wallX
+    );
+
+    $("dimBLine")
+    .setAttribute(
+        "y1",
+        bDimensionY
+    );
+
+    $("dimBLine")
+    .setAttribute(
+        "y2",
+        bDimensionY
+    );
+
+
+    $("dimBExtLeft")
+    .setAttribute(
+        "x1",
+        leftX
+    );
+
+    $("dimBExtLeft")
+    .setAttribute(
+        "x2",
+        leftX
+    );
+
+    $("dimBExtLeft")
+    .setAttribute(
+        "y1",
+        bDimensionY
+    );
+
+    $("dimBExtLeft")
+    .setAttribute(
+        "y2",
+        topY
+    );
+
+
+    $("dimBExtRight")
+    .setAttribute(
+        "y1",
+        bDimensionY
+    );
+
+    $("dimBExtRight")
+    .setAttribute(
+        "y2",
+        topY
+    );
+
+
+    $("svgB")
+    .setAttribute(
+        "x",
+        (leftX + wallX) / 2
+        -
+        70
+    );
+
+    $("svgB")
+    .setAttribute(
+        "y",
+        bDimensionY - 10
     );
 
     $("svgB").textContent =
-        `B = ${B.toFixed(2)} m`;
+        `성토폭 B = ${B.toFixed(2)} m`;
 
-    $("svgH").setAttribute(
-        "x",
-        wallX + 20
+
+    /*
+       Fill height H
+    */
+
+    $("dimHLine")
+    .setAttribute(
+        "y1",
+        topY
     );
 
-    $("svgH").setAttribute(
+    $("dimHLine")
+    .setAttribute(
+        "y2",
+        groundY
+    );
+
+    $("dimHTop")
+    .setAttribute(
+        "y1",
+        topY
+    );
+
+    $("dimHTop")
+    .setAttribute(
+        "y2",
+        topY
+    );
+
+    $("svgH")
+    .setAttribute(
         "y",
         (topY + groundY) / 2
     );
@@ -1332,18 +2774,715 @@ function updateGeometrySVG(B, H, theta) {
     $("svgH").textContent =
         `H = ${H.toFixed(2)} m`;
 
-    $("svgTheta").setAttribute(
-        "x",
-        leftX + 10
+
+    /*
+       Embedment D
+    */
+
+    $("dimDLine")
+    .setAttribute(
+        "y1",
+        groundY
     );
 
-    $("svgTheta").setAttribute(
+    $("dimDLine")
+    .setAttribute(
+        "y2",
+        pileBottomY
+    );
+
+    $("dimDBottom")
+    .setAttribute(
+        "y1",
+        pileBottomY
+    );
+
+    $("dimDBottom")
+    .setAttribute(
+        "y2",
+        pileBottomY
+    );
+
+    $("svgD")
+    .setAttribute(
         "y",
-        groundY - 10
+        (groundY + pileBottomY) / 2
+    );
+
+    $("svgD").textContent =
+        Number.isFinite(embedmentD)
+        ? `D = ${D.toFixed(2)} m`
+        : "D = 산정불가";
+
+
+    /*
+       Slope angle
+    */
+
+    $("svgTheta")
+    .setAttribute(
+        "x",
+        leftX + 35
+    );
+
+    $("svgTheta")
+    .setAttribute(
+        "y",
+        topY + 23
     );
 
     $("svgTheta").textContent =
-        `${theta.toFixed(1)}°`;
+        `θ = ${theta.toFixed(1)}°`;
+
+
+    /*
+       Lagging board divisions
+
+       Only graphical indication.
+    */
+
+    const boardGroup =
+        $("boardLines");
+
+    boardGroup.innerHTML =
+        "";
+
+    const displayBoards =
+        Math.min(
+            boardCount,
+            25
+        );
+
+    if (
+        displayBoards > 0
+        &&
+        H > 0
+    ) {
+
+        for (
+            let i = 0;
+            i <= displayBoards;
+            i++
+        ) {
+
+            const ratio =
+                i /
+                displayBoards;
+
+            const y =
+                topY +
+                ratio * visualH;
+
+            const line =
+                document.createElementNS(
+                    SVG_NS,
+                    "line"
+                );
+
+            line.setAttribute(
+                "x1",
+                wallX - 45
+            );
+
+            line.setAttribute(
+                "x2",
+                wallX - 10
+            );
+
+            line.setAttribute(
+                "y1",
+                y
+            );
+
+            line.setAttribute(
+                "y2",
+                y
+            );
+
+            line.setAttribute(
+                "stroke",
+                "#66564b"
+            );
+
+            line.setAttribute(
+                "stroke-width",
+                "2"
+            );
+
+            boardGroup.appendChild(
+                line
+            );
+        }
+
+        $("boardLabel")
+        .setAttribute(
+            "x",
+            wallX - 110
+        );
+
+        $("boardLabel")
+        .setAttribute(
+            "y",
+            topY +
+            visualH * 0.45
+        );
+
+        $("boardLabel")
+        .textContent =
+            `토류판 ${boardCount}단`;
+    }
+
+
+    /*
+       -------------------------------------------------
+       BACK / FILL WATER TABLE
+       reference = fill top
+       -------------------------------------------------
+    */
+
+    let outsideMessages =
+        [];
+
+    if (
+        $("fillGWEnabled").checked
+    ) {
+
+        const gw =
+            Math.max(
+                num("gwFill"),
+                0
+            );
+
+
+        /*
+           Water table inside fill wedge
+        */
+
+        if (
+            gw <= H
+        ) {
+
+            const y =
+                topY +
+                gw * pxPerM;
+
+            /*
+               Intersection of horizontal water table
+               with original slope.
+            */
+
+            const ratio =
+                H > 0
+                ? clamp(
+                    gw / H,
+                    0,
+                    1
+                )
+                : 0;
+
+            const xStart =
+                leftX +
+                visualRun * ratio;
+
+            $("fillGWGroup")
+            .style.display =
+                "";
+
+            $("fillGWLine")
+            .setAttribute(
+                "x1",
+                xStart
+            );
+
+            $("fillGWLine")
+            .setAttribute(
+                "x2",
+                wallX
+            );
+
+            $("fillGWLine")
+            .setAttribute(
+                "y1",
+                y
+            );
+
+            $("fillGWLine")
+            .setAttribute(
+                "y2",
+                y
+            );
+
+            $("fillGWLabel")
+            .setAttribute(
+                "x",
+                Math.min(
+                    xStart + 10,
+                    wallX - 180
+                )
+            );
+
+            $("fillGWLabel")
+            .setAttribute(
+                "y",
+                y - 7
+            );
+
+            $("fillGWLabel")
+            .textContent =
+                `배면 GWL = 성토상단 - ${gw.toFixed(2)} m`;
+        }
+
+
+        /*
+           Back water table below GL
+        */
+
+        else if (
+            gw <= H + D
+        ) {
+
+            const y =
+                groundY +
+                (gw - H) *
+                pxPerM;
+
+            $("fillGWGroup")
+            .style.display =
+                "";
+
+            $("fillGWLine")
+            .setAttribute(
+                "x1",
+                wallX - 190
+            );
+
+            $("fillGWLine")
+            .setAttribute(
+                "x2",
+                wallX
+            );
+
+            $("fillGWLine")
+            .setAttribute(
+                "y1",
+                y
+            );
+
+            $("fillGWLine")
+            .setAttribute(
+                "y2",
+                y
+            );
+
+            $("fillGWLabel")
+            .setAttribute(
+                "x",
+                wallX - 185
+            );
+
+            $("fillGWLabel")
+            .setAttribute(
+                "y",
+                y - 7
+            );
+
+            $("fillGWLabel")
+            .textContent =
+                `배면 GWL = 상단 - ${gw.toFixed(2)} m`;
+        }
+
+        else {
+
+            $("fillGWGroup")
+            .style.display =
+                "none";
+
+            outsideMessages.push(
+                `배면 GWL = 상단-${gw.toFixed(2)} m → 표시범위 아래`
+            );
+        }
+    }
+
+    else {
+
+        $("fillGWGroup")
+        .style.display =
+            "none";
+
+        outsideMessages.push(
+            "배면 지하수 미고려"
+        );
+    }
+
+
+    /*
+       -------------------------------------------------
+       FRONT / NATIVE WATER TABLE
+       reference = GL
+       -------------------------------------------------
+    */
+
+    if (
+        $("nativeGWEnabled").checked
+    ) {
+
+        const gw =
+            Math.max(
+                num("gwNative"),
+                0
+            );
+
+        if (
+            gw <= D
+        ) {
+
+            const y =
+                groundY +
+                gw * pxPerM;
+
+            $("nativeGWGroup")
+            .style.display =
+                "";
+
+            $("nativeGWLine")
+            .setAttribute(
+                "y1",
+                y
+            );
+
+            $("nativeGWLine")
+            .setAttribute(
+                "y2",
+                y
+            );
+
+            $("nativeGWLabel")
+            .setAttribute(
+                "y",
+                y - 7
+            );
+
+            $("nativeGWLabel")
+            .textContent =
+                `굴착측 GWL = GL - ${gw.toFixed(2)} m`;
+        }
+
+        else {
+
+            $("nativeGWGroup")
+            .style.display =
+                "none";
+
+            outsideMessages.push(
+                `굴착측 GWL = GL-${gw.toFixed(2)} m → 근입부 아래`
+            );
+        }
+    }
+
+    else {
+
+        $("nativeGWGroup")
+        .style.display =
+            "none";
+
+        outsideMessages.push(
+            "굴착측 지하수 미고려"
+        );
+    }
+
+
+    $("gwOutsideLabel")
+    .textContent =
+        outsideMessages.join(
+            "   |   "
+        );
+}
+
+
+/* =========================================================
+   Pressure diagram
+========================================================= */
+
+function updatePressureSVG(
+    H,
+    D
+) {
+
+    if (
+        !Number.isFinite(D)
+        ||
+        D <= 0
+    ) {
+
+        D = 2.0;
+    }
+
+
+    const axisX =
+        450;
+
+    const topY =
+        45;
+
+    const glY =
+        205;
+
+    const toeY =
+        380;
+
+    const aboveHeight =
+        glY - topY;
+
+    const belowHeight =
+        toeY - glY;
+
+    const sampleCount =
+        40;
+
+
+    let fillSamples =
+        [];
+
+    let activeEmbedSamples =
+        [];
+
+    let passiveSamples =
+        [];
+
+    let maxP =
+        0;
+
+
+    /*
+       Fill active
+    */
+
+    for (
+        let i = 0;
+        i <= sampleCount;
+        i++
+    ) {
+
+        const z =
+            H *
+            i /
+            sampleCount;
+
+        const p =
+            fillPressure(
+                z,
+                H
+            );
+
+        maxP =
+            Math.max(
+                maxP,
+                p
+            );
+
+        fillSamples.push({
+            ratio:
+                sampleCount > 0
+                ? i / sampleCount
+                : 0,
+            p
+        });
+    }
+
+
+    /*
+       Embedded active and passive
+    */
+
+    for (
+        let i = 0;
+        i <= sampleCount;
+        i++
+    ) {
+
+        const y =
+            D *
+            i /
+            sampleCount;
+
+        const pressures =
+            nativePressures(
+                y,
+                H
+            );
+
+        maxP =
+            Math.max(
+                maxP,
+                pressures.active,
+                pressures.passive
+            );
+
+        activeEmbedSamples.push({
+            ratio:
+                i /
+                sampleCount,
+            p:
+                pressures.active
+        });
+
+        passiveSamples.push({
+            ratio:
+                i /
+                sampleCount,
+            p:
+                pressures.passive
+        });
+    }
+
+
+    maxP =
+        Math.max(
+            maxP,
+            1
+        );
+
+    const maxWidth =
+        180;
+
+
+    /*
+       Fill active polygon
+    */
+
+    let path =
+        `M ${axisX} ${topY} `;
+
+    fillSamples.forEach(
+        s => {
+
+            const y =
+                topY +
+                s.ratio *
+                aboveHeight;
+
+            const x =
+                axisX -
+                s.p /
+                maxP *
+                maxWidth;
+
+            path +=
+                `L ${x.toFixed(1)} ${y.toFixed(1)} `;
+        }
+    );
+
+    path +=
+        `L ${axisX} ${glY} Z`;
+
+    $("activeFillPath")
+    .setAttribute(
+        "d",
+        path
+    );
+
+
+    /*
+       Embedded active polygon
+    */
+
+    path =
+        `M ${axisX} ${glY} `;
+
+    activeEmbedSamples.forEach(
+        s => {
+
+            const y =
+                glY +
+                s.ratio *
+                belowHeight;
+
+            const x =
+                axisX -
+                s.p /
+                maxP *
+                maxWidth;
+
+            path +=
+                `L ${x.toFixed(1)} ${y.toFixed(1)} `;
+        }
+    );
+
+    path +=
+        `L ${axisX} ${toeY} Z`;
+
+    $("activeEmbedPath")
+    .setAttribute(
+        "d",
+        path
+    );
+
+
+    /*
+       Passive polygon
+    */
+
+    path =
+        `M ${axisX} ${glY} `;
+
+    passiveSamples.forEach(
+        s => {
+
+            const y =
+                glY +
+                s.ratio *
+                belowHeight;
+
+            const x =
+                axisX +
+                s.p /
+                maxP *
+                maxWidth;
+
+            path +=
+                `L ${x.toFixed(1)} ${y.toFixed(1)} `;
+        }
+    );
+
+    path +=
+        `L ${axisX} ${toeY} Z`;
+
+    $("passivePath")
+    .setAttribute(
+        "d",
+        path
+    );
+
+
+    const maxFill =
+        Math.max(
+            ...fillSamples.map(
+                s => s.p
+            )
+        );
+
+    const maxActiveEmbed =
+        Math.max(
+            ...activeEmbedSamples.map(
+                s => s.p
+            )
+        );
+
+    const maxPassive =
+        Math.max(
+            ...passiveSamples.map(
+                s => s.p
+            )
+        );
+
+
+    $("pressureMaxLabel")
+    .textContent =
+        `성토부 최대 ${maxFill.toFixed(1)} kPa`
+        +
+        `   |   근입부 배면 최대 ${maxActiveEmbed.toFixed(1)} kPa`
+        +
+        `   |   저감 후 수동측 최대 ${maxPassive.toFixed(1)} kPa`;
 }
 
 
@@ -1366,8 +3505,36 @@ function drawChart(results) {
         canvas.height;
 
     ctx.clearRect(
-        0, 0, W, H
+        0,
+        0,
+        W,
+        H
     );
+
+
+    const finite =
+        results.filter(
+            r =>
+            Number.isFinite(r.D)
+        );
+
+    if (!finite.length) {
+
+        ctx.font =
+            "15px Arial";
+
+        ctx.fillStyle =
+            "#444";
+
+        ctx.fillText(
+            "계산 가능한 근입깊이가 없습니다.",
+            70,
+            100
+        );
+
+        return;
+    }
+
 
     const margin = {
         left: 65,
@@ -1377,77 +3544,133 @@ function drawChart(results) {
     };
 
     const plotW =
-        W
-        - margin.left
-        - margin.right;
+        W -
+        margin.left -
+        margin.right;
 
     const plotH =
-        H
-        - margin.top
-        - margin.bottom;
+        H -
+        margin.top -
+        margin.bottom;
 
-    const finite =
-        results.filter(
-            r => Number.isFinite(r.D)
-        );
-
-    if (!finite.length) {
-
-        ctx.font =
-            "15px Arial";
-
-        ctx.fillText(
-            "계산 가능한 근입깊이가 없습니다.",
-            80,
-            100
-        );
-
-        return;
-    }
 
     const xMin =
         Math.min(
-            ...finite.map(r => r.S)
+            ...finite.map(
+                r => r.S
+            )
         );
 
     const xMax =
         Math.max(
-            ...finite.map(r => r.S)
+            ...finite.map(
+                r => r.S
+            )
         );
 
     const yMax =
         Math.max(
             1,
-            ...finite.map(r => r.D)
-        ) * 1.15;
+            ...finite.map(
+                r => r.D
+            )
+        ) *
+        1.15;
 
 
     function xScale(x) {
 
         if (xMax === xMin)
-            return margin.left + plotW / 2;
+            return margin.left
+                + plotW / 2;
 
-        return margin.left
-             + (x - xMin)
-             / (xMax - xMin)
-             * plotW;
+        return (
+            margin.left
+            +
+            (x - xMin)
+            /
+            (xMax - xMin)
+            *
+            plotW
+        );
     }
 
 
     function yScale(y) {
 
-        return margin.top
-             + plotH
-             - y / yMax * plotH;
+        return (
+            margin.top
+            +
+            plotH
+            -
+            y /
+            yMax *
+            plotH
+        );
     }
 
 
     /*
-       axes
+       Grid
     */
 
-    ctx.strokeStyle = "#444";
-    ctx.lineWidth = 1;
+    ctx.font =
+        "12px Arial";
+
+    for (
+        let i = 0;
+        i <= 5;
+        i++
+    ) {
+
+        const value =
+            yMax *
+            i / 5;
+
+        const py =
+            yScale(value);
+
+        ctx.strokeStyle =
+            "#dddddd";
+
+        ctx.lineWidth =
+            1;
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            margin.left,
+            py
+        );
+
+        ctx.lineTo(
+            margin.left +
+            plotW,
+            py
+        );
+
+        ctx.stroke();
+
+        ctx.fillStyle =
+            "#444";
+
+        ctx.fillText(
+            value.toFixed(1),
+            22,
+            py + 4
+        );
+    }
+
+
+    /*
+       Axes
+    */
+
+    ctx.strokeStyle =
+        "#444";
+
+    ctx.lineWidth =
+        1.3;
 
     ctx.beginPath();
 
@@ -1458,72 +3681,29 @@ function drawChart(results) {
 
     ctx.lineTo(
         margin.left,
-        margin.top + plotH
+        margin.top +
+        plotH
     );
 
     ctx.lineTo(
-        margin.left + plotW,
-        margin.top + plotH
+        margin.left +
+        plotW,
+        margin.top +
+        plotH
     );
 
     ctx.stroke();
 
 
     /*
-       y grid
-    */
-
-    ctx.font =
-        "12px Arial";
-
-    ctx.fillStyle =
-        "#444";
-
-    for (let i = 0; i <= 5; i++) {
-
-        const y =
-            yMax * i / 5;
-
-        const py =
-            yScale(y);
-
-        ctx.strokeStyle =
-            "#ddd";
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-            margin.left,
-            py
-        );
-
-        ctx.lineTo(
-            margin.left + plotW,
-            py
-        );
-
-        ctx.stroke();
-
-        ctx.fillStyle =
-            "#444";
-
-        ctx.fillText(
-            y.toFixed(1),
-            20,
-            py + 4
-        );
-    }
-
-
-    /*
-       result line
+       Curve
     */
 
     ctx.strokeStyle =
-        "#246c94";
+        "#286f91";
 
     ctx.lineWidth =
-        2;
+        2.5;
 
     ctx.beginPath();
 
@@ -1531,15 +3711,25 @@ function drawChart(results) {
         (r, i) => {
 
             const px =
-                xScale(r.S);
+                xScale(
+                    r.S
+                );
 
             const py =
-                yScale(r.D);
+                yScale(
+                    r.D
+                );
 
             if (i === 0)
-                ctx.moveTo(px, py);
+                ctx.moveTo(
+                    px,
+                    py
+                );
             else
-                ctx.lineTo(px, py);
+                ctx.lineTo(
+                    px,
+                    py
+                );
         }
     );
 
@@ -1547,48 +3737,61 @@ function drawChart(results) {
 
 
     /*
-       points
+       Points
     */
 
-    finite.forEach(r => {
+    finite.forEach(
+        r => {
 
-        const px =
-            xScale(r.S);
+            const px =
+                xScale(
+                    r.S
+                );
 
-        const py =
-            yScale(r.D);
+            const py =
+                yScale(
+                    r.D
+                );
 
-        ctx.beginPath();
+            ctx.beginPath();
 
-        ctx.arc(
-            px,
-            py,
-            5,
-            0,
-            Math.PI * 2
-        );
+            ctx.arc(
+                px,
+                py,
+                5,
+                0,
+                Math.PI * 2
+            );
 
-        ctx.fillStyle =
-            "#246c94";
+            ctx.fillStyle =
+                "#286f91";
 
-        ctx.fill();
+            ctx.fill();
 
-        ctx.fillStyle =
-            "#222";
 
-        ctx.fillText(
-            `${r.S.toFixed(1)} m`,
-            px - 15,
-            margin.top + plotH + 22
-        );
+            ctx.fillStyle =
+                "#222";
 
-        ctx.fillText(
-            r.D.toFixed(2),
-            px - 12,
-            py - 9
-        );
-    });
+            ctx.fillText(
+                r.D.toFixed(2),
+                px - 13,
+                py - 9
+            );
 
+            ctx.fillText(
+                r.S.toFixed(2),
+                px - 13,
+                margin.top +
+                plotH +
+                21
+            );
+        }
+    );
+
+
+    /*
+       Axis labels
+    */
 
     ctx.font =
         "13px Arial";
@@ -1598,15 +3801,16 @@ function drawChart(results) {
 
     ctx.fillText(
         "H형강 간격 S (m)",
-        W / 2 - 45,
+        W / 2 - 48,
         H - 8
     );
+
 
     ctx.save();
 
     ctx.translate(
-        13,
-        H / 2 + 35
+        14,
+        H / 2 + 50
     );
 
     ctx.rotate(
@@ -1629,15 +3833,19 @@ function drawChart(results) {
 
 function calculate() {
 
+    updateModeVisibility();
+
+
     const {
         B,
         theta,
         H
-    } = getGeometry();
+    } =
+        getGeometry();
 
 
     /*
-       Height and boards
+       Board count
     */
 
     const boardHeight =
@@ -1647,13 +3855,17 @@ function calculate() {
         );
 
     const boards =
-        Math.ceil(
-            H / boardHeight
+        Math.max(
+            1,
+            Math.ceil(
+                H /
+                boardHeight
+            )
         );
 
 
     /*
-       Rankine coefficients
+       Earth pressure coefficients
     */
 
     const fillCoeff =
@@ -1661,16 +3873,20 @@ function calculate() {
             num("phiFill")
         );
 
+
     let nativeKa;
     let nativeKp;
+
 
     if (
         $("nativeMode").value
         === "undrained"
     ) {
+
         nativeKa = 1;
         nativeKp = 1;
     }
+
     else {
 
         const coeff =
@@ -1687,321 +3903,552 @@ function calculate() {
 
 
     /*
-       Section
+       H section
     */
 
     const section =
         sectionProperties();
 
 
-    /*
-       Outputs
-    */
-
     $("outH").textContent =
-        H.toFixed(2) + " m";
+        H.toFixed(2)
+        +
+        " m";
 
     $("outBoards").textContent =
-        boards + " 단";
+        boards
+        +
+        " 단";
 
     $("outKa").textContent =
-        fillCoeff.Ka.toFixed(3);
+        fillCoeff.Ka
+        .toFixed(3);
 
     $("outKp").textContent =
-        nativeKp.toFixed(3);
+        nativeKp
+        .toFixed(3);
 
 
     $("outArea").textContent =
         section.A.toFixed(0)
-        + " mm²";
+        +
+        " mm²";
 
     $("outIx").textContent =
-        section.Ix.toExponential(3)
-        + " mm⁴";
+        section.Ix
+        .toExponential(3)
+        +
+        " mm⁴";
 
     $("outZx").textContent =
-        section.Zx.toExponential(3)
-        + " mm³";
+        section.Zx
+        .toExponential(3)
+        +
+        " mm³";
 
     $("outMy").textContent =
-        section.My.toFixed(1)
-        + " kN·m";
+        section.My
+        .toFixed(1)
+        +
+        " kN·m";
 
     $("outMa").textContent =
-        section.Ma.toFixed(1)
-        + " kN·m";
+        section.Ma
+        .toFixed(1)
+        +
+        " kN·m";
 
 
     /*
-       Soil info
+       Soil information
     */
+
+    let groundwaterText =
+        "";
+
+    if (
+        $("fillGWEnabled").checked
+    ) {
+
+        groundwaterText +=
+            `배면 GWL = 성토상단 - ${num("gwFill").toFixed(2)} m`;
+    }
+    else {
+
+        groundwaterText +=
+            "배면 지하수 미고려";
+    }
+
+
+    groundwaterText +=
+        " / ";
+
+
+    if (
+        $("nativeGWEnabled").checked
+    ) {
+
+        groundwaterText +=
+            `굴착측 GWL = GL - ${num("gwNative").toFixed(2)} m`;
+    }
+    else {
+
+        groundwaterText +=
+            "굴착측 지하수 미고려";
+    }
+
 
     if (
         $("nativeMode").value
         === "drained"
     ) {
 
-        $("soilInfo").innerHTML =
-            `
-            <b>원지반 배수해석</b><br>
-            γ = ${num("gammaNative").toFixed(1)} kN/m³,
-            φ = ${num("phiNative").toFixed(1)}°,
-            c = ${num("cNative").toFixed(1)} kPa<br>
-            Ka = ${nativeKa.toFixed(3)},
-            Kp = ${nativeKp.toFixed(3)}
-            `;
+        $("soilInfo")
+        .innerHTML =
+
+        `<b>원지반 배수해석</b><br>
+        γ = ${num("gammaNative").toFixed(1)} kN/m³,
+        φ = ${num("phiNative").toFixed(1)}°,
+        c = ${num("cNative").toFixed(1)} kPa<br>
+        Ka = ${nativeKa.toFixed(3)},
+        Kp = ${nativeKp.toFixed(3)}<br>
+        <span class="gw-label">${groundwaterText}</span>`;
     }
+
     else {
 
-        $("soilInfo").innerHTML =
-            `
-            <b>원지반 비배수 φ=0 간이해석</b><br>
-            γ = ${num("gammaNative").toFixed(1)} kN/m³,
-            Su = ${num("Su").toFixed(1)} kPa<br>
-            Ka = Kp = 1.0의 총응력 개념을 사용합니다.
-            `;
+        $("soilInfo")
+        .innerHTML =
+
+        `<b>원지반 비배수 총응력 간이해석</b><br>
+        γ = ${num("gammaNative").toFixed(1)} kN/m³,
+        Su = ${num("Su").toFixed(1)} kPa<br>
+        φ = 0° 개념으로 Ka = Kp = 1.0 사용<br>
+        <span class="gw-label">
+        비배수 총응력 해석에서는 지하수압을 별도 가산하지 않습니다.
+        </span>`;
     }
 
 
     /*
-       Candidate spacings
+       Candidate spacing parsing
     */
 
     const spacings =
         $("spacingList")
         .value
         .split(",")
-        .map(v => parseFloat(v.trim()))
-        .filter(v =>
-            Number.isFinite(v)
-            && v > 0
+        .map(
+            v =>
+            parseFloat(
+                v.trim()
+            )
         )
-        .sort((a,b) => a-b);
+        .filter(
+            v =>
+            Number.isFinite(v)
+            &&
+            v > 0
+        )
+        .sort(
+            (a,b) =>
+            a - b
+        );
 
 
     const maxEmbed =
-        num("maxEmbed");
+        Math.max(
+            num("maxEmbed"),
+            0
+        );
 
     const kM =
-        num("momentFactor");
+        Math.max(
+            num("momentFactor"),
+            0
+        );
 
-    const results = [];
+
+    let results = [];
 
 
-    spacings.forEach(S => {
+    spacings.forEach(
+        S => {
 
-        const D =
-            solveEmbedment(
-                H,
+            const D =
+                solveEmbedment(
+                    H,
+                    S
+                );
+
+
+            const Mdrive =
+                drivingMoment(
+                    H,
+                    S
+                );
+
+
+            /*
+               Preliminary structural moment
+            */
+
+            const Mcheck =
+                Mdrive *
+                kM;
+
+
+            const pileUtilization =
+                section.Ma > 0
+                ?
+                Mcheck /
+                section.Ma
+                :
+                Infinity;
+
+
+            const board =
+                boardCheck(
+                    H,
+                    S
+                );
+
+
+            const Bp =
+                passiveWidth(
+                    S
+                );
+
+
+            const totalLength =
+                Number.isFinite(D)
+                ?
+                H + D
+                :
+                Infinity;
+
+
+            const steelIndex =
+                Number.isFinite(D)
+                ?
+                totalLength /
                 S
-            );
+                :
+                Infinity;
 
-        const Mdrive =
-            drivingMoment(
-                H,
-                S
-            );
 
-        /*
-            Simplified structural screening moment
-        */
+            const ok =
+                Number.isFinite(D)
+                &&
+                D <= maxEmbed
+                &&
+                pileUtilization <= 1
+                &&
+                board.utilization <= 1;
 
-        const Mcheck =
-            Mdrive * kM;
 
-        const utilization =
-            section.Ma > 0
-            ? Mcheck / section.Ma
-            : Infinity;
+            results.push({
 
-        const Bp =
-            passiveWidth(S);
+                S,
+                D,
+                Bp,
 
-        const totalLength =
-            Number.isFinite(D)
-            ? H + D
-            : Infinity;
+                Mdrive,
+                Mcheck,
 
-        const steelIndex =
-            Number.isFinite(D)
-            ? totalLength / S
-            : Infinity;
+                pileUtilization,
 
-        const ok =
-            Number.isFinite(D)
-            &&
-            D <= maxEmbed
-            &&
-            utilization <= 1.0;
+                boardUtilization:
+                    board.utilization,
 
-        results.push({
+                boardMoment:
+                    board.M,
 
-            S,
-            Bp,
-            D,
-            Mdrive,
-            Mcheck,
-            utilization,
-            totalLength,
-            steelIndex,
-            ok
-        });
-    });
+                totalLength,
+                steelIndex,
+
+                ok
+            });
+        }
+    );
 
 
     /*
-       Select recommendation:
-       minimum pile-length index among valid candidates
+       Recommendation:
+       valid candidate with minimum steel index.
     */
 
     const valid =
         results
-        .filter(r => r.ok)
+        .filter(
+            r => r.ok
+        )
         .sort(
             (a,b) =>
             a.steelIndex
-            - b.steelIndex
+            -
+            b.steelIndex
         );
+
 
     const recommended =
         valid.length
-        ? valid[0]
-        : null;
+        ?
+        valid[0]
+        :
+        null;
 
 
     /*
-       Table
+       Result table
     */
 
     const tbody =
         $("resultBody");
 
-    tbody.innerHTML = "";
+    tbody.innerHTML =
+        "";
 
-    results.forEach(r => {
 
-        const tr =
-            document.createElement(
-                "tr"
-            );
+    results.forEach(
+        r => {
 
-        if (
-            recommended
-            &&
-            Math.abs(
-                recommended.S - r.S
-            ) < 1e-9
-        ) {
-            tr.classList.add(
-                "recommended"
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            if (
+                recommended
+                &&
+                Math.abs(
+                    r.S -
+                    recommended.S
+                ) < 1e-9
+            ) {
+
+                tr.classList.add(
+                    "recommended"
+                );
+            }
+
+
+            const Dtext =
+                Number.isFinite(r.D)
+                ?
+                r.D.toFixed(2)
+                :
+                ">25";
+
+
+            const Ltext =
+                Number.isFinite(
+                    r.totalLength
+                )
+                ?
+                r.totalLength.toFixed(2)
+                :
+                "-";
+
+
+            const steelText =
+                Number.isFinite(
+                    r.steelIndex
+                )
+                ?
+                r.steelIndex.toFixed(2)
+                :
+                "-";
+
+
+            const pileUtilText =
+                Number.isFinite(
+                    r.pileUtilization
+                )
+                ?
+                (
+                    r.pileUtilization *
+                    100
+                ).toFixed(1)
+                +
+                "%"
+                :
+                "-";
+
+
+            const boardUtilText =
+                Number.isFinite(
+                    r.boardUtilization
+                )
+                ?
+                (
+                    r.boardUtilization *
+                    100
+                ).toFixed(1)
+                +
+                "%"
+                :
+                "-";
+
+
+            tr.innerHTML =
+
+            `<td>${r.S.toFixed(2)}</td>
+
+            <td>${r.Bp.toFixed(2)}</td>
+
+            <td>${r.Mcheck.toFixed(1)}</td>
+
+            <td>${Dtext}</td>
+
+            <td>${Ltext}</td>
+
+            <td>${pileUtilText}</td>
+
+            <td>${boardUtilText}</td>
+
+            <td>${steelText}</td>
+
+            <td class="${r.ok ? "ok" : "ng"}">
+            ${r.ok ? "예비 OK" : "검토 필요"}
+            </td>`;
+
+
+            tbody.appendChild(
+                tr
             );
         }
-
-        const Dtext =
-            Number.isFinite(r.D)
-            ? r.D.toFixed(2)
-            : "> 20";
-
-        const Ltext =
-            Number.isFinite(r.totalLength)
-            ? r.totalLength.toFixed(2)
-            : "-";
-
-        const Itext =
-            Number.isFinite(r.steelIndex)
-            ? r.steelIndex.toFixed(2)
-            : "-";
-
-        const utilText =
-            Number.isFinite(r.utilization)
-            ? (r.utilization * 100)
-                .toFixed(1) + "%"
-            : "-";
-
-        tr.innerHTML =
-            `
-            <td>${r.S.toFixed(2)}</td>
-            <td>${r.Bp.toFixed(2)}</td>
-            <td>${r.Mcheck.toFixed(1)}</td>
-            <td>${Dtext}</td>
-            <td>${Ltext}</td>
-            <td>${utilText}</td>
-            <td>${Itext}</td>
-            <td class="${r.ok ? "ok" : "ng"}">
-                ${r.ok ? "예비 OK" : "검토 필요"}
-            </td>
-            `;
-
-        tbody.appendChild(tr);
-    });
+    );
 
 
     /*
-       Recommendation
+       Recommendation output
     */
+
+    let diagramD;
+
 
     if (recommended) {
 
-        $("recommendation").innerHTML =
-            `
-            현재 입력조건에 대한 <b>예비 비교결과</b>입니다.<br><br>
+        diagramD =
+            recommended.D;
 
-            성토폭
-            <b>B = ${B.toFixed(2)} m</b><br>
+        $("outSpacing")
+        .textContent =
+            recommended.S
+            .toFixed(2)
+            +
+            " m";
 
-            성토높이
-            <b>H = ${H.toFixed(2)} m</b><br>
 
-            토류판
-            <b>${boards}단</b>
-            (${boardHeight.toFixed(2)} m/단 기준)<br><br>
+        $("recommendation")
+        .innerHTML =
 
-            후보 중 H형강량 지수가 가장 작은 안:<br>
+        `현재 입력조건에서 후보 중
+        <b>예비 경제성 지수가 가장 좋은 안</b>은 다음과 같습니다.<br><br>
 
-            <b>
-            H-300×300×15×15 @
-            ${recommended.S.toFixed(2)} m
-            </b><br>
+        성토폭 B =
+        <b>${B.toFixed(2)} m</b><br>
 
-            필요 근입깊이:
-            <b>${recommended.D.toFixed(2)} m</b><br>
+        기존사면 경사 =
+        <b>${theta.toFixed(1)}°</b><br>
 
-            H형강 전체 길이:
-            <b>${recommended.totalLength.toFixed(2)} m</b><br>
+        성토높이 H =
+        <b>${H.toFixed(2)} m</b><br>
 
-            예비 모멘트 이용률:
-            <b>${(recommended.utilization * 100).toFixed(1)}%</b><br>
+        토류판 =
+        <b>${boards}단</b>
+        (${boardHeight.toFixed(2)} m/단)<br><br>
 
-            H형강량 지수:
-            <b>${recommended.steelIndex.toFixed(2)} m/m</b><br><br>
+        <b>
+        H-300×300×15×15
+        @ ${recommended.S.toFixed(2)} m
+        </b><br>
 
-            ※ 이것은 후보안 상대비교 결과이며
-            최종 설계값을 의미하지 않습니다.
-            `;
+        필요 근입깊이 D =
+        <b>${recommended.D.toFixed(2)} m</b><br>
+
+        전체 H형강 길이 =
+        <b>${recommended.totalLength.toFixed(2)} m</b><br>
+
+        H형강 예비 모멘트 이용률 =
+        <b>${(recommended.pileUtilization * 100).toFixed(1)}%</b><br>
+
+        토류판 예비 휨 이용률 =
+        <b>${(recommended.boardUtilization * 100).toFixed(1)}%</b><br>
+
+        상대 강재량 지수 =
+        <b>${recommended.steelIndex.toFixed(2)} m/m</b><br><br>
+
+        ※ 추천안은 현재 입력한 후보 간격 내에서의 상대 비교결과입니다.
+        최종 설계값으로 바로 사용해서는 안 됩니다.`;
     }
+
     else {
 
-        $("recommendation").innerHTML =
-            `
-            현재 설정에서는 모든 후보 간격이
-            허용 근입깊이 또는 H형강 예비 모멘트 조건을 벗어납니다.<br><br>
+        $("outSpacing")
+        .textContent =
+            "-";
 
-            다음 중 하나를 검토하십시오.<br>
 
-            · H형강 간격 축소<br>
-            · H형강 단면 증가<br>
-            · 수동저항 조건 재검토<br>
-            · 근입깊이 증가<br>
-            · 성토높이 또는 상재하중 변경
-            `;
+        const finiteD =
+            results
+            .filter(
+                r =>
+                Number.isFinite(r.D)
+            )
+            .sort(
+                (a,b) =>
+                a.D -
+                b.D
+            );
+
+
+        diagramD =
+            finiteD.length
+            ?
+            finiteD[0].D
+            :
+            2.0;
+
+
+        $("recommendation")
+        .innerHTML =
+
+        `현재 설정에서는 모든 후보 간격이
+        근입깊이·H형강 또는 토류판 조건 중 하나 이상을 만족하지 못합니다.<br><br>
+
+        검토 가능한 조정사항:<br>
+
+        · H형강 간격 축소<br>
+        · H형강 단면 증가<br>
+        · 토류판 두께 증가<br>
+        · 원지반 강도정수 재검토<br>
+        · 수동저항 조건 재검토<br>
+        · 허용 근입깊이 증가<br>
+        · 상재하중 및 수위조건 재검토`;
     }
 
+
+    /*
+       Visuals
+    */
 
     updateGeometrySVG(
         B,
         H,
-        theta
+        theta,
+        diagramD,
+        boards
     );
+
+
+    updatePressureSVG(
+        H,
+        diagramD
+    );
+
 
     drawChart(
         results
@@ -2010,62 +4457,102 @@ function calculate() {
 
 
 /* =========================================================
-   Events
+   Reset
+========================================================= */
+
+function resetAll() {
+
+    for (
+        const [id, value]
+        of Object.entries(defaults)
+    ) {
+
+        const el =
+            $(id);
+
+        if (!el)
+            continue;
+
+        if (
+            el.type === "checkbox"
+        ) {
+
+            el.checked =
+                Boolean(value);
+        }
+
+        else {
+
+            el.value =
+                value;
+        }
+    }
+
+    updateModeVisibility();
+    calculate();
+}
+
+
+/* =========================================================
+   Event binding
 ========================================================= */
 
 document
 .querySelectorAll(
     "input, select"
 )
-.forEach(el => {
+.forEach(
+    el => {
 
-    el.addEventListener(
-        "input",
-        calculate
-    );
+        el.addEventListener(
+            "input",
+            calculate
+        );
 
-    el.addEventListener(
-        "change",
-        calculate
-    );
-});
-
-
-$("nativeMode")
-.addEventListener(
-    "change",
-    () => {
-
-        updateModeVisibility();
-        calculate();
+        el.addEventListener(
+            "change",
+            calculate
+        );
     }
 );
 
 
-$("heightMode")
+$("presetSand")
 .addEventListener(
-    "change",
-    () => {
+    "click",
+    presetSand
+);
 
-        const manual =
-            $("heightMode").value
-            === "manual";
 
-        $("manualH").disabled =
-            !manual;
+$("presetClay")
+.addEventListener(
+    "click",
+    presetClay
+);
 
-        calculate();
-    }
+
+$("presetSu")
+.addEventListener(
+    "click",
+    presetSu
+);
+
+
+$("resetButton")
+.addEventListener(
+    "click",
+    resetAll
 );
 
 
 /* =========================================================
-   Initial
+   Initial calculation
 ========================================================= */
 
 updateModeVisibility();
 calculate();
 
+})();
 </script>
 
 </body>
